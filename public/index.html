@@ -4,150 +4,396 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Daksha Dubey | Portfolio</title>
+    <title>Daksha Dubey | Full-Stack Architect</title>
+    <script src="https://cdn.tailwindcss.com"></script>
     <link rel="stylesheet" href="main.css">
 </head>
 
-<body>
-
-    <div class="glossy-bg"></div>
-
-    <header>
-        <img src="https://media.licdn.com/dms/image/v2/D5603AQE1cNfkhAJBsw/profile-displayphoto-shrink_400_400/B56ZY7F_1VGoAg-/0/1744748153160?e=1761177600&v=beta&t=OFaQvG7wZq82ttYxI440xgDvON0RJWv5C-s8iKHMVBA"
-            alt="Daksha Dubey Profile Picture" class="profile-img">
-        <h1 data-animate>Daksha Dubey</h1>
-        <p data-animate>Full-Stack Developer | Founder & C.E.O. of Eventofu</p>
-    </header>
-
-    <nav>
-        <ul>
-            <li><a href="#about">About</a></li>
-            <li><a href="#skills">Skills</a></li>
-            <li><a href="#projects">Projects</a></li>
-            <li><a href="#experience">Experience</a></li>
-            <li><a href="#education">Education</a></li>
-            <li><a href="#linkedin-posts">Certificates</a></li>
-            <li><a href="#contact">Contact</a></li>
-        </ul>
+<body class="bg-slate-50 overflow-x-hidden scroll-smooth">
+    <!-- Navbar -->
+    <nav
+        class="fixed top-0 left-0 right-0 z-[100] px-6 py-6 md:px-12 backdrop-blur-md border-b border-white/20 nav-container">
+        <div class="max-w-7xl mx-auto flex justify-between items-center">
+            <div class="flex items-center gap-3">
+                <div
+                    class="w-10 h-10 grad-main rounded-xl flex items-center justify-center shadow-lg shadow-blue-500/20 navbar-logo-box">
+                    <span class="text-white font-black text-xl navbar-logo-icon">D</span>
+                </div>
+                <span
+                    class="text-xl font-black text-slate-900 tracking-tighter uppercase navbar-logo-text">DakshaDubey</span>
+            </div>
+            <div class="hidden md:flex items-center gap-8">
+                <a href="#about"
+                    class="text-[10px] font-black uppercase tracking-[0.2em] text-slate-400 hover:text-slate-900 transition-colors">Origins</a>
+                <a href="#skills"
+                    class="text-[10px] font-black uppercase tracking-[0.2em] text-slate-400 hover:text-slate-900 transition-colors">Tech
+                    Hub</a>
+                <a href="#projects"
+                    class="text-[10px] font-black uppercase tracking-[0.2em] text-slate-400 hover:text-slate-900 transition-colors">Projects</a>
+                <a href="#experience"
+                    class="text-[10px] font-black uppercase tracking-[0.2em] text-slate-400 hover:text-slate-900 transition-colors">Timeline</a>
+            </div>
+            <div class="flex items-center gap-4 navbar-btn-group">
+                <a href="https://www.linkedin.com/in/daksha-dubey-2117102a3/" target="_blank"
+                    class="text-xs font-black text-slate-900 uppercase tracking-widest px-6 py-3 rounded-xl hover:bg-white/50 transition-all btn-signin">LinkedIn</a>
+                <a href="#contact"
+                    class="grad-main text-white text-xs font-black uppercase tracking-widest px-8 py-3.5 rounded-xl shadow-xl shadow-blue-500/20 hover:scale-105 active:scale-95 transition-all btn-join">Contact</a>
+            </div>
+        </div>
     </nav>
 
-    <section id="about" data-animate>
-        <div class="glass-card">
-            <h2>About Me</h2>
-            <p>Hi, I'm Daksha Dubey, a Full-Stack Developer and Founder & CEO of Eventofu. I specialize in Android & Web
-                Development, Backend Systems, Cloud Integration, AI, robotics, and space technology. I thrive on
-                building futuristic solutions that shape tomorrow.</p>
+    <!-- Hero Section -->
+    <section class="relative min-h-screen flex items-center justify-center pt-24 hero-gradient overflow-hidden">
+        <div class="max-w-5xl mx-auto px-6 text-center space-y-10 relative z-10">
+            <div
+                class="inline-flex items-center gap-2 px-4 py-2 bg-blue-50 rounded-full border border-blue-100 animate-fade-in">
+                <div class="w-1.5 h-1.5 rounded-full bg-blue-500 animate-pulse"></div>
+                <span class="text-[9px] font-black uppercase tracking-[0.3em] text-blue-600">Full-Stack Protocol
+                    Active</span>
+            </div>
+
+            <h1
+                class="text-6xl md:text-8xl font-black text-slate-900 tracking-tighter leading-[0.9] animate-fade-in delay-100">
+                Engineering <br> the <span class="text-transparent bg-clip-text grad-main">Future of Web.</span>
+            </h1>
+
+            <p
+                class="text-lg md:text-xl text-slate-500 font-medium max-w-2xl mx-auto leading-relaxed animate-fade-in delay-200">
+                Full-Stack Developer, Founder of Eventofu, and explorer of AI & Space Tech. Engineered for scale, speed,
+                and total transparency.
+            </p>
+
+            <div class="flex flex-col md:flex-row items-center justify-center gap-6 animate-fade-in delay-300">
+                <a href="#projects" class="btn-primary px-12 py-5 text-sm tracking-[0.2em] w-full md:w-auto">VIEW
+                    PROJECTS</a>
+                <a href="#skills" class="btn-secondary px-12 py-5 text-sm tracking-[0.2em] w-full md:w-auto">EXPLORE
+                    STACK</a>
+            </div>
+
+            <div class="pt-20 grid grid-cols-2 md:grid-cols-4 gap-8 opacity-40 animate-fade-in delay-400">
+                <div class="space-y-1">
+                    <p class="text-3xl font-black text-slate-900">100%</p>
+                    <p class="text-[9px] font-black uppercase tracking-widest">Delivery Rate</p>
+                </div>
+                <div class="space-y-1">
+                    <p class="text-3xl font-black text-slate-900">2024</p>
+                    <p class="text-[9px] font-black uppercase tracking-widest">Founder Origin</p>
+                </div>
+                <div class="space-y-1">
+                    <p class="text-3xl font-black text-slate-900">AI+</p>
+                    <p class="text-[9px] font-black uppercase tracking-widest">Integrated Stack</p>
+                </div>
+                <div class="space-y-1">
+                    <p class="text-3xl font-black text-slate-900">24/7</p>
+                    <p class="text-[9px] font-black uppercase tracking-widest">Innovation Pulse</p>
+                </div>
+            </div>
+        </div>
+
+        <div
+            class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[1200px] h-[1200px] bg-blue-500/5 rounded-full blur-[120px] pointer-events-none">
         </div>
     </section>
 
-    <section id="skills" data-animate>
-        <h2>Skills & Expertise</h2>
-        <div class="skills-grid">
-            <div class="skill glass-card">
-                <h3>Programming</h3>
-                <p>JavaScript, Python, Java, C, C++, PHP</p>
+    <!-- About Section -->
+    <section id="about" class="py-32 bg-white scroll-reveal">
+        <div class="max-w-7xl mx-auto px-6 grid md:grid-cols-2 gap-16 items-center">
+            <div class="relative">
+                <div class="perspective-container">
+                    <div class="float-3d">
+                        <img src="https://media.licdn.com/dms/image/v2/D5603AQE1cNfkhAJBsw/profile-displayphoto-shrink_400_400/B56ZY7F_1VGoAg-/0/1744748153160?e=1761177600&v=beta&t=OFaQvG7wZq82ttYxI440xgDvON0RJWv5C-s8iKHMVBA"
+                            alt="Daksha Dubey"
+                            class="rounded-[3rem] shadow-2xl border-4 border-white/50 w-full max-w-sm mx-auto">
+                    </div>
+                </div>
             </div>
-            <div class="skill glass-card">
-                <h3>Web Technologies</h3>
-                <p>Node.js, HTML, XML, RESTful APIs</p>
-            </div>
-            <div class="skill glass-card">
-                <h3>Mobile Development</h3>
-                <p>Android (Java, Kotlin, XML)</p>
-            </div>
-            <div class="skill glass-card">
-                <h3>Database</h3>
-                <p>MySQL, MongoDB, Firebase</p>
-            </div>
-            <div class="skill glass-card">
-                <h3>Software Development</h3>
-                <p>Full-Stack, Backend Architecture, Cloud Integration</p>
-            </div>
-            <div class="skill glass-card">
-                <h3>Leadership</h3>
-                <p>Strategic Planning, Team Leadership, Startup Execution</p>
-            </div>
-        </div>
-    </section>
-
-    <section id="projects" data-animate>
-        <h2>Featured Projects</h2>
-        <div class="projects-grid">
-            <div class="project glass-card">
-                <h3>Eventofu Platform</h3>
-                <p>A comprehensive event management platform for weddings and celebrations. Offers seamless booking and
-                    professional event managers.</p>
-            </div>
-            <div class="project glass-card">
-                <h3>Virtual Fence with Arduino</h3>
-                <p>IoT project using Arduino Uno and ultrasonic sensors to create a smart virtual fence system.</p>
-            </div>
-            <div class="project glass-card">
-                <h3>AI-Powered Productivity</h3>
-                <p>Tools leveraging AI to optimize workflows and improve institutional efficiency.</p>
-            </div>
-        </div>
-    </section>
-
-    <section id="experience" data-animate>
-        <h2>Experience</h2>
-        <div class="experience glass-card">
-            <h4>Founder & CEO | Eventofu</h4>
-            <p>Jan 2024 - Present | Jabalpur & Vadodara, India</p>
-            <p>Leading Eventofu, providing cutting-edge solutions in event management, Android & web development, and
-                backend systems.</p>
-        </div>
-        <div class="experience glass-card">
-            <h4>Web Development Intern | Eduexpose.in</h4>
-            <p>May 2025 - July 2025 | India</p>
-        </div>
-        <div class="experience glass-card">
-            <h4>Intern | ArctikkCircle</h4>
-            <p>Jan 2025 - April 2025 | Vadodara, India</p>
-        </div>
-    </section>
-
-    <section id="education" data-animate>
-        <h2>Education</h2>
-        <div class="education glass-card">
-            <h4>Bachelor of Technology - BTech, IEP CSE Microsoft</h4>
-            <p>Parul University | Aug 2024 - June 2028</p>
-        </div>
-    </section>
-
-    <section id="linkedin-posts" data-animate>
-        <h2>LinkedIn & Certificates</h2>
-        <div class="posts-container">
-            <iframe src="https://www.linkedin.com/embed/feed/update/urn:li:share:7306944684780634112" height="600"
-                frameborder="0" allowfullscreen="" title="Embedded post"></iframe>
-            <iframe src="https://www.linkedin.com/embed/feed/update/urn:li:ugcPost:7357469039473971200" height="600"
-                frameborder="0" allowfullscreen="" title="Embedded post"></iframe>
-            <iframe src="https://www.linkedin.com/embed/feed/update/urn:li:share:7348935299906891776" height="600"
-                frameborder="0" allowfullscreen="" title="Embedded post"></iframe>
-        </div>
-    </section>
-
-    <section id="contact" data-animate>
-        <div class="glass-card">
-            <h2>Get In Touch</h2>
-            <div class="contact-info">
-                <p><strong>Location:</strong> Parul University, Vadodara, Gujarat, India</p>
-
-                <p><strong>LinkedIn:</strong> <a href="https://www.linkedin.com/in/daksha-dubey-2117102a3/"
-                        class="linkedin-link" target="_blank">View Profile</a></p>
+            <div class="space-y-8">
+                <p class="text-[11px] font-black text-blue-600 uppercase tracking-[0.4em]">The Architect</p>
+                <h2 class="text-4xl md:text-5xl font-black text-slate-900 tracking-tight text-left mb-0">Driven by
+                    curiosity, <br>built for speed.</h2>
+                <p class="text-slate-500 text-lg font-medium leading-relaxed">
+                    I am Daksha Dubey, a Full-Stack Developer specializing in Android & Web ecosystems. From the
+                    founder's desk at Eventofu to exploring the depths of AI and robotics, I build futuristic solutions
+                    that bridge the gap between imagination and reality.
+                </p>
+                <div class="grid grid-cols-2 gap-6 pt-4">
+                    <div class="p-4 bg-slate-50 rounded-2xl border border-slate-100">
+                        <p class="text-xs font-black text-blue-600 uppercase tracking-widest mb-1">Founder</p>
+                        <p class="text-slate-900 font-bold">Eventofu</p>
+                    </div>
+                    <div class="p-4 bg-slate-50 rounded-2xl border border-slate-100">
+                        <p class="text-xs font-black text-blue-600 uppercase tracking-widest mb-1">Focus</p>
+                        <p class="text-slate-900 font-bold">AI & Robotics</p>
+                    </div>
+                </div>
             </div>
         </div>
     </section>
 
-    <footer>
-        <p>&copy; 2025 Daksha Dubey | Crafted with Passion | Team EvoXploit</p>
+    <!-- Skills Hub -->
+    <section id="skills" class="py-32 bg-white relative overflow-hidden">
+        <div class="max-w-7xl mx-auto px-6">
+            <div class="text-center space-y-4 mb-20 scroll-reveal">
+                <p class="text-[11px] font-black text-blue-600 uppercase tracking-[0.4em]">Integrated Stack</p>
+                <h2 class="text-4xl md:text-5xl font-black text-slate-900 tracking-tight">The Tech Hub</h2>
+            </div>
+
+            <div class="perspective-container relative min-h-[600px]">
+                <canvas id="webCanvas" class="absolute inset-0 w-full h-full"></canvas>
+
+                <div class="relative z-10 grid grid-cols-1 md:grid-cols-3 gap-12 items-center">
+                    <div class="text-center scroll-reveal" style="transition-delay: 100ms;">
+                        <div
+                            class="w-40 h-40 mx-auto bg-white rounded-[2rem] shadow-xl border border-slate-100 flex items-center justify-center float-3d mb-8">
+                            <span class="text-3xl font-black text-slate-900">Web</span>
+                        </div>
+                        <p class="text-xs font-black text-slate-400 uppercase tracking-[0.2em]">React • Node • PHP • SQL
+                        </p>
+                    </div>
+
+                    <div class="text-center scroll-reveal">
+                        <div
+                            class="w-56 h-56 mx-auto grad-main rounded-[2.5rem] shadow-2xl flex items-center justify-center float-3d border-4 border-white/20">
+                            <span class="text-5xl font-black text-white">CORE</span>
+                        </div>
+                        <h3 class="text-2xl font-black text-slate-900 mt-8 mb-3">Innovation Engine</h3>
+                        <p class="text-slate-500 font-medium">Full-Lifecycle Architecture</p>
+                    </div>
+
+                    <div class="text-center scroll-reveal" style="transition-delay: 200ms;">
+                        <div
+                            class="w-40 h-40 mx-auto bg-white rounded-[2rem] shadow-xl border border-slate-100 flex items-center justify-center float-3d mb-8">
+                            <span class="text-3xl font-black text-slate-900">Mobile</span>
+                        </div>
+                        <p class="text-xs font-black text-slate-400 uppercase tracking-[0.2em]">Android • Kotlin • Java
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Project Slider -->
+    <section id="projects" class="py-32 bg-slate-50 overflow-hidden">
+        <div class="max-w-7xl mx-auto px-6">
+            <div class="text-center space-y-4 mb-16 scroll-reveal">
+                <p class="text-[11px] font-black text-blue-600 uppercase tracking-[0.4em]">Showcase</p>
+                <h2 class="text-4xl md:text-5xl font-black text-slate-900 tracking-tight">Featured Operations</h2>
+            </div>
+
+            <div class="relative">
+                <div id="cardSlider"
+                    class="flex gap-8 overflow-x-auto scroll-smooth pb-12 snap-x snap-mandatory scrollbar-hide">
+                    <!-- Eventofu -->
+                    <div class="flex-shrink-0 w-[90%] md:w-[450px] snap-center scroll-reveal">
+                        <div
+                            class="card p-10 h-full bg-gradient-to-br from-slate-900 to-slate-800 border-0 hover-lift group">
+                            <div class="flex items-start justify-between mb-8">
+                                <div
+                                    class="w-16 h-16 bg-white/10 rounded-2xl flex items-center justify-center backdrop-blur-sm">
+                                    <svg class="w-8 h-8 text-white" fill="none" viewBox="0 0 24 24"
+                                        stroke="currentColor">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                            d="M13 10V3L4 14h7v7l9-11h-7z" />
+                                    </svg>
+                                </div>
+                                <span
+                                    class="px-3 py-1 bg-blue-500/20 text-blue-400 text-[9px] font-black uppercase tracking-widest rounded-full">Primary
+                                    Node</span>
+                            </div>
+                            <h3 class="text-2xl font-black text-white mb-4">Eventofu Platform</h3>
+                            <p class="text-white/60 font-medium leading-relaxed mb-8">
+                                A comprehensive event management ecosystem for weddings & corporate events. Seamless
+                                booking, premium inventory, and professional coordination.
+                            </p>
+                            <a href="#"
+                                class="text-white text-xs font-black uppercase tracking-widest flex items-center gap-2 group-hover:gap-4 transition-all">
+                                EXPLORE DEPTH <svg class="w-4 h-4" fill="none" viewBox="0 0 24 24"
+                                    stroke="currentColor">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="3"
+                                        d="M17 8l4 4m0 0l-4 4m4-4H3" />
+                                </svg>
+                            </a>
+                        </div>
+                    </div>
+
+                    <!-- IoT -->
+                    <div class="flex-shrink-0 w-[90%] md:w-[450px] snap-center scroll-reveal"
+                        style="transition-delay: 100ms;">
+                        <div
+                            class="card p-10 h-full bg-gradient-to-br from-blue-600 to-blue-800 border-0 hover-lift group">
+                            <div class="flex items-start justify-between mb-8">
+                                <div
+                                    class="w-16 h-16 bg-white/10 rounded-2xl flex items-center justify-center backdrop-blur-sm">
+                                    <svg class="w-8 h-8 text-white" fill="none" viewBox="0 0 24 24"
+                                        stroke="currentColor">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                            d="M9 3v2m6-2v2M9 19v2m6-2v2M5 9H3m2 6H3m18-6h-2m2 6h-2M7 19h10a2 2 0 002-2V7a2 2 0 00-2-2H7a2 2 0 00-2 2v10a2 2 0 002 2zM9 9h6v6H9V9z" />
+                                    </svg>
+                                </div>
+                                <span
+                                    class="px-3 py-1 bg-white/20 text-white text-[9px] font-black uppercase tracking-widest rounded-full">IoT
+                                    Node</span>
+                            </div>
+                            <h3 class="text-2xl font-black text-white mb-4">Virtual Drone Fence</h3>
+                            <p class="text-white/80 font-medium leading-relaxed mb-8">
+                                Smart perimeter security using Arduino Uno and ultrasonic sensor arrays. Engineered for
+                                real-time intrusion detection and rapid response alerts.
+                            </p>
+                            <a href="#"
+                                class="text-white text-xs font-black uppercase tracking-widest flex items-center gap-2 group-hover:gap-4 transition-all">
+                                VIEW SCHEMATICS <svg class="w-4 h-4" fill="none" viewBox="0 0 24 24"
+                                    stroke="currentColor">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="3"
+                                        d="M17 8l4 4m0 0l-4 4m4-4H3" />
+                                </svg>
+                            </a>
+                        </div>
+                    </div>
+
+                    <!-- AI -->
+                    <div class="flex-shrink-0 w-[90%] md:w-[450px] snap-center scroll-reveal"
+                        style="transition-delay: 200ms;">
+                        <div
+                            class="card p-10 h-full bg-gradient-to-br from-emerald-600 to-emerald-800 border-0 hover-lift group">
+                            <div class="flex items-start justify-between mb-8">
+                                <div
+                                    class="w-16 h-16 bg-white/10 rounded-2xl flex items-center justify-center backdrop-blur-sm">
+                                    <svg class="w-8 h-8 text-white" fill="none" viewBox="0 0 24 24"
+                                        stroke="currentColor">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                            d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
+                                    </svg>
+                                </div>
+                                <span
+                                    class="px-3 py-1 bg-white/20 text-white text-[9px] font-black uppercase tracking-widest rounded-full">AI
+                                    Node</span>
+                            </div>
+                            <h3 class="text-2xl font-black text-white mb-4">Productivity Engine</h3>
+                            <p class="text-white/80 font-medium leading-relaxed mb-8">
+                                AI-driven workflow optimization tools built to reduce institutional friction and improve
+                                data-driven decision making through neural processing.
+                            </p>
+                            <a href="#"
+                                class="text-white text-xs font-black uppercase tracking-widest flex items-center gap-2 group-hover:gap-4 transition-all">
+                                ACCESS CORE <svg class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="3"
+                                        d="M17 8l4 4m0 0l-4 4m4-4H3" />
+                                </svg>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="flex justify-center gap-2 mt-8">
+                    <button onclick="scrollSlider(0)" class="w-6 h-2 rounded-full bg-blue-600" id="dot0"></button>
+                    <button onclick="scrollSlider(1)" class="w-2 h-2 rounded-full bg-slate-300" id="dot1"></button>
+                    <button onclick="scrollSlider(2)" class="w-2 h-2 rounded-full bg-slate-300" id="dot2"></button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Experience Timeline -->
+    <section id="experience" class="py-32 bg-white scroll-reveal">
+        <div class="max-w-4xl mx-auto px-6">
+            <div class="text-center space-y-4 mb-20">
+                <p class="text-[11px] font-black text-blue-600 uppercase tracking-[0.4em]">Trajectory</p>
+                <h2 class="text-4xl md:text-5xl font-black text-slate-900 tracking-tight">Executive Timeline</h2>
+            </div>
+
+            <div
+                class="space-y-12 relative before:absolute before:inset-0 before:ml-5 before:h-full before:w-0.5 before:bg-slate-100 md:before:mx-auto">
+                <div class="relative flex items-center justify-between md:justify-normal md:odd:flex-row-reverse group">
+                    <div
+                        class="flex items-center justify-center w-10 h-10 rounded-full border border-white shadow grad-main text-white shrink-0 md:order-1 md:group-odd:-translate-x-1/2 md:group-even:translate-x-1/2 z-10">
+                        <svg class="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                d="M21 13.255A23.931 23.931 0 0112 15c-3.183 0-6.22-.62-9-1.745M16 6V4a2 2 0 00-2-2h-4a2 2 0 00-2 2v2m4 6h.01M5 20h14a2 2 0 002-2V8a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
+                        </svg>
+                    </div>
+                    <div
+                        class="w-[calc(100%-4rem)] md:w-[calc(50%-2.5rem)] p-8 rounded-3xl bg-slate-50 border border-slate-100 hover:border-blue-200 transition-colors">
+                        <div class="flex items-center justify-between mb-2">
+                            <span class="text-blue-600 text-[10px] font-black uppercase tracking-widest">2024 -
+                                Present</span>
+                            <span
+                                class="px-2 py-1 bg-blue-50 text-blue-600 text-[8px] font-black uppercase rounded">Current
+                                Node</span>
+                        </div>
+                        <h4 class="text-xl font-black text-slate-900">Founder & CEO | Eventofu</h4>
+                        <p class="text-slate-500 font-medium text-sm mt-3">Leading strategic operations and end-to-end
+                            management for premium events across India.</p>
+                    </div>
+                </div>
+
+                <div class="relative flex items-center justify-between md:justify-normal md:odd:flex-row-reverse group">
+                    <div
+                        class="flex items-center justify-center w-10 h-10 rounded-full border border-white shadow bg-white text-slate-400 shrink-0 md:order-1 md:group-odd:-translate-x-1/2 md:group-even:translate-x-1/2 z-10">
+                        <svg class="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253" />
+                        </svg>
+                    </div>
+                    <div
+                        class="w-[calc(100%-4rem)] md:w-[calc(50%-2.5rem)] p-8 rounded-3xl bg-slate-50 border border-slate-100 hover:border-blue-200 transition-colors">
+                        <div class="flex items-center justify-between mb-2">
+                            <span class="text-slate-400 text-[10px] font-black uppercase tracking-widest">2025</span>
+                        </div>
+                        <h4 class="text-xl font-black text-slate-900">Web Development Intern</h4>
+                        <p class="text-slate-500 font-medium text-sm mt-3">Eduexpose.in | ArctikkCircle | Implementing
+                            core web-infrastructure and digital solutions.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact CTA -->
+    <section id="contact" class="bg-slate-900 py-32 relative overflow-hidden">
+        <div class="max-w-5xl mx-auto px-6 text-center space-y-12 relative z-10">
+            <p class="text-[11px] font-black text-blue-400 uppercase tracking-[0.4em]">Protocol Expansion</p>
+            <h2 class="text-4xl md:text-7xl font-black text-white tracking-tight leading-tight">Ready to build <br> the
+                <span class="text-blue-500">grid of tomorrow?</span></h2>
+            <div class="flex flex-col md:flex-row items-center justify-center gap-8">
+                <a href="mailto:dakshdubey1007@gmail.com"
+                    class="bg-white text-slate-900 px-12 py-5 rounded-2xl font-black tracking-[0.2em] uppercase text-xs hover:bg-blue-50 transition-all">INITIALIZE
+                    SYNC</a>
+                <div class="text-slate-400 font-medium">dakshdubey1007@gmail.com</div>
+            </div>
+        </div>
+        <div
+            class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-full h-full bg-blue-500/10 blur-[120px] rounded-full pointer-events-none">
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="py-20 bg-white border-t border-slate-100">
+        <div class="max-w-7xl mx-auto px-6 flex flex-col md:flex-row justify-between items-center gap-10 text-center">
+            <div class="flex items-center gap-3">
+                <div class="w-8 h-8 grad-main rounded-lg flex items-center justify-center"><span
+                        class="text-white font-black">D</span></div>
+                <span class="text-lg font-black text-slate-900 tracking-tighter uppercase">DakshaDubey</span>
+            </div>
+            <p class="text-[10px] font-black text-slate-400 uppercase tracking-widest leading-relaxed">
+                © 2025 Architecture Protocol. All nodes active. <br>
+                Engineered by Team EvoXploit | Owned by Daksha Dubey
+            </p>
+            <div class="flex gap-8">
+                <a href="#about"
+                    class="text-[10px] font-black text-slate-400 uppercase tracking-widest hover:text-slate-900">Origins</a>
+                <a href="#"
+                    class="text-[10px] font-black text-slate-400 uppercase tracking-widest hover:text-slate-900">Protocol</a>
+                <a href="#"
+                    class="text-[10px] font-black text-slate-400 uppercase tracking-widest hover:text-slate-900">Core</a>
+            </div>
+        </div>
     </footer>
 
+    <script src="js/spider-web.js"></script>
     <script>
-        const observerOptions = {
-            threshold: 0.1
-        };
-
+        // Scroll Reveal Logic
+        const observerOptions = { threshold: 0.1 };
         const observer = new IntersectionObserver((entries) => {
             entries.forEach(entry => {
                 if (entry.isIntersecting) {
@@ -156,11 +402,33 @@
             });
         }, observerOptions);
 
-        document.querySelectorAll('[data-animate]').forEach(el => {
-            observer.observe(el);
+        document.querySelectorAll('.scroll-reveal').forEach(el => observer.observe(el));
+
+        // Project Slider Logic
+        const slider = document.getElementById('cardSlider');
+        const dots = [document.getElementById('dot0'), document.getElementById('dot1'), document.getElementById('dot2')];
+        const cards = slider.querySelectorAll('.snap-center');
+
+        function scrollSlider(index) {
+            const cardWidth = cards[0].offsetWidth + 32;
+            slider.scrollTo({ left: cardWidth * index, behavior: 'smooth' });
+            updateDots(index);
+        }
+
+        function updateDots(activeIndex) {
+            dots.forEach((dot, i) => {
+                dot.classList.toggle('bg-blue-600', i === activeIndex);
+                dot.classList.toggle('w-6', i === activeIndex);
+                dot.classList.toggle('bg-slate-300', i !== activeIndex);
+                dot.classList.toggle('w-2', i !== activeIndex);
+            });
+        }
+
+        slider.addEventListener('scroll', () => {
+            const index = Math.round(slider.scrollLeft / (cards[0].offsetWidth + 32));
+            updateDots(index);
         });
     </script>
-
 </body>
 
 </html>
