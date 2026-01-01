@@ -6,7 +6,8 @@
     --bg-color: #f8fafc;
     --text-primary: #0f172a;
     --text-secondary: #64748b;
-    --grad-main: linear-gradient(135deg, #3b82f6 0%, #2563eb 100%);
+    --grad-main: linear-gradient(135deg, #2563eb 0%, #1d4ed8 100%);
+    --grad-glass: linear-gradient(135deg, rgba(255, 255, 255, 0.7), rgba(255, 255, 255, 0.3));
 }
 
 * {
@@ -20,6 +21,32 @@ body {
     background: var(--bg-color);
     color: var(--text-secondary);
     overflow-x: hidden;
+    cursor: none;
+    /* Hide default cursor for custom one */
+}
+
+/* Premium Glassmorphism */
+.glass-premium {
+    background: rgba(255, 255, 255, 0.7);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    border: 1px solid rgba(255, 255, 255, 0.5);
+    box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.1);
+}
+
+.glass-nav {
+    background: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(0px);
+    border-bottom: 1px solid transparent;
+}
+
+.glass-nav-active {
+    background: rgba(255, 255, 255, 0.85);
+    backdrop-filter: blur(20px);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.3);
+    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+    padding-top: 1rem !important;
+    padding-bottom: 1rem !important;
 }
 
 .grad-main {

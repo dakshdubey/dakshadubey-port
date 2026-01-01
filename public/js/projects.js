@@ -84,21 +84,25 @@ document.addEventListener('DOMContentLoaded', () => {
 
         // NOTE: Adjusted to wrap the card content in a button or clickable div
         return `
-            <div id="project-${repo.id}" class="project-card opacity-0 translate-y-4 transition-all duration-700 ease-out h-full cursor-pointer">
-                <div class="card p-8 h-full bg-white border border-slate-100 hover:border-blue-200 hover-lift group flex flex-col justify-between">
-                    <div>
+            <div id="project-${repo.id}" class="project-card opacity-0 translate-y-10 transition-all duration-700 ease-out h-full cursor-none">
+                <div class="card p-8 h-full glass-premium hover:border-blue-300 hover:shadow-2xl hover:shadow-blue-500/20 hover:-translate-y-2 transition-all duration-500 group flex flex-col justify-between relative overflow-hidden">
+                    
+                    <!-- Decorative Gradient Blob -->
+                    <div class="absolute -top-10 -right-10 w-32 h-32 bg-blue-500/10 rounded-full blur-3xl group-hover:bg-blue-500/20 transition-all duration-700"></div>
+
+                    <div class="relative z-10">
                         <div class="flex items-start justify-between mb-6">
-                            <div class="w-12 h-12 bg-blue-50 rounded-xl flex items-center justify-center text-blue-600">
+                            <div class="w-12 h-12 glass-nav rounded-2xl flex items-center justify-center text-blue-600 shadow-sm group-hover:scale-110 transition-transform duration-500">
                                 <svg class="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 11H5m14 0a2 2 0 012 2v6a2 2 0 01-2 2H5a2 2 0 01-2-2v-6a2 2 0 012-2m14 0V9a2 2 0 00-2-2M5 11V9a2 2 0 012-2m0 0V5a2 2 0 012-2h6a2 2 0 012 2v2M7 7h10" />
                                 </svg>
                             </div>
-                            <span class="px-3 py-1 bg-slate-100 text-slate-500 text-[9px] font-black uppercase tracking-widest rounded-full">
+                            <span class="px-3 py-1 bg-white/50 backdrop-blur-md border border-white/40 text-slate-500 text-[9px] font-black uppercase tracking-widest rounded-full shadow-sm">
                                 ${language}
                             </span>
                         </div>
                         
-                        <h3 class="text-xl font-black text-slate-900 mb-3 line-clamp-1" title="${repo.name}">
+                        <h3 class="text-2xl font-black text-slate-900 mb-3 line-clamp-1 group-hover:text-blue-600 transition-colors" title="${repo.name}">
                             ${repo.name.replace(/-/g, ' ').toUpperCase()}
                         </h3>
                         
@@ -107,16 +111,17 @@ document.addEventListener('DOMContentLoaded', () => {
                         </p>
                     </div>
 
-                    <div class="pt-6 border-t border-slate-50 mt-auto">
+                    <div class="pt-6 border-t border-slate-200/50 mt-auto relative z-10">
                         <div class="flex items-center justify-between mb-4">
-                            <span class="text-[10px] font-bold text-slate-400 uppercase tracking-wider">
+                            <span class="text-[10px] font-bold text-slate-400 uppercase tracking-wider flex items-center gap-1">
+                                <span class="w-1.5 h-1.5 rounded-full bg-emerald-400"></span>
                                 Updated: ${date}
                             </span>
                         </div>
                         
                         <div class="flex items-center gap-4">
-                            <button class="flex-1 btn-secondary py-3 text-[10px] tracking-widest hover:bg-slate-50">
-                                DETAILS
+                            <button class="flex-1 btn-secondary py-3 text-[10px] tracking-widest hover:bg-blue-50 hover:text-blue-600 hover:border-blue-200">
+                                EXPLORE NODE
                             </button>
                         </div>
                     </div>
