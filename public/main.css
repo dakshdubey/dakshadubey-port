@@ -164,3 +164,35 @@ html {
     opacity: 1;
     transform: translateY(0);
 }
+
+/* Dynamic Project Card Animation */
+.project-card.visible {
+    opacity: 1 !important;
+    transform: translateY(0) !important;
+}
+
+/* Modal Scrollbar */
+#modal-window ::-webkit-scrollbar {
+    width: 6px;
+    height: 6px;
+}
+
+#modal-window ::-webkit-scrollbar-track {
+    background: transparent;
+}
+
+#modal-window ::-webkit-scrollbar-thumb {
+    background: #e2e8f0;
+    border-radius: 3px;
+}
+
+#modal-window ::-webkit-scrollbar-thumb:hover {
+    background: #cbd5e1;
+}
+
+/* Sandbox Active State */
+.active-mode {
+    border-color: #3b82f6;
+    background-color: #eff6ff;
+    color: #2563eb;
+}
