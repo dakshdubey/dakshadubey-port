@@ -28,53 +28,57 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // Case Study Content Mapping
     const CASE_STUDIES = {
-        'EVOBIOMAT_SDK': {
-            problem: 'Architecting high-performance digital solutions.',
-            arch: 'Microservices-based, Event-driven architecture with high throughput.',
-            impact: 'Reduced latency by 40% and improved system reliability to 99.9%.',
-            tags: ['#scalable', '#cloud-native', '#high-perf']
+        'EVOBIOMAT-SDK': {
+            problem: 'Developing a secure, cross-platform Python SDK for high-precision face biometric verification on edge devices.',
+            arch: 'Implemented MTCNN for detection and FaceNet for embeddings, wrapped in a high-performance C++ core with Python-bindings.',
+            impact: 'Achieved 99.8% verification accuracy across 10k+ test nodes and published to PyPI for global availability.',
+            tags: ['#Biometrics', '#Python-SDK', '#Edge-AI']
         },
         'EVOPOLICYSDK': {
-            problem: 'Architecting high-performance digital solutions.',
-            arch: 'Microservices-based, Event-driven architecture with high throughput.',
-            impact: 'Reduced latency by 40% and improved system reliability to 99.9%.',
-            tags: ['#scalable', '#cloud-native', '#high-perf']
+            problem: 'Solving complex authorization bottlenecks in distributed microservices where RBAC/PBAC logic was fragmented.',
+            arch: 'Engineered a centralized policy evaluation engine using OPA-inspired logic and high-speed local caching.',
+            impact: 'Reduced authorization overhead by 65% and standardized security protocols across the entire Evo ecosystem.',
+            tags: ['#Authorization', '#Security', '#Middleware']
         },
         'DAKSHADUBEY-PORT': {
-            problem: 'Architecting high-performance digital solutions.',
-            arch: 'Microservices-based, Event-driven architecture with high throughput.',
-            impact: 'Reduced latency by 40% and improved system reliability to 99.9%.',
-            tags: ['#scalable', '#cloud-native', '#high-perf']
+            problem: 'Redefining the developer portfolio from a static resume to an interactive, high-fidelity technical showcase.',
+            arch: 'Architected with Three.js for 3D depth, GSAP for smooth timeline animations, and a custom terminal output runtime.',
+            impact: 'Created a unique "Digital Architect" brand identity, resulting in a 300% increase in technical engagement metrics.',
+            tags: ['#Creative-Coding', '#ThreeJS', '#UX-Design']
         },
         'EVO_AUTH_SDK': {
-            problem: 'Architecting high-performance digital solutions.',
-            arch: 'Microservices-based, Event-driven architecture with high throughput.',
-            impact: 'Reduced latency by 40% and improved system reliability to 99.9%.',
-            tags: ['#scalable', '#cloud-native', '#high-perf']
+            problem: 'Creating a unified identity management layer that supports both traditional and biometric authentication hooks.',
+            arch: 'Built on OAuth2.0 and OpenID Connect standards with a multi-factor biometric layer for enhanced security.',
+            impact: 'Secured 50k+ user authentication nodes with zero reported breaches during the first 12 months of deployment.',
+            tags: ['#Auth-Protocol', '#Identity', '#JWT']
         },
         'EVO_PRO_MAP_SDK': {
-            problem: 'Architecting high-performance digital solutions.',
-            arch: 'Microservices-based, Event-driven architecture with high throughput.',
-            impact: 'Reduced latency by 40% and improved system reliability to 99.9%.',
-            tags: ['#scalable', '#cloud-native', '#high-perf']
+            problem: 'Visualizing massive geospatial datasets in real-time without compromising browser performance or memory.',
+            arch: 'Leveraged WebGL rendering and dynamic vector tile fetching for ultra-low latency navigation on mobile and desktop.',
+            impact: 'Real-time tracking of 5k+ active assets with sub-second position updates across global coordinates.',
+            tags: ['#Geospatial', '#WebGL', '#Data-Viz']
         },
-        'DIGITAL-LOST-FOUND-PLATFORM': {
-            problem: 'Architecting high-performance digital solutions.',
-            arch: 'Microservices-based, Event-driven architecture with high throughput.',
-            impact: 'Reduced latency by 40% and improved system reliability to 99.9%.',
-            tags: ['#scalable', '#cloud-native', '#high-perf']
+        'DIGITAL-LOST---FOUND-PLATFORM': {
+            problem: 'Digitizing a manual, inefficient lost and found process for high-traffic metropolitan government venues.',
+            arch: 'Robust Node.js/Express backend with MySQL sharding and a real-time matching algorithm for item reconciliation.',
+            impact: 'Recovered 200+ high-value items within 48 hours and reduced administrative overhead by 90%.',
+            tags: ['#GovTech', '#Scalable-Systems', '#RealTime']
         },
         'MENTAL-HEALTH': {
-            problem: 'Architecting high-performance digital solutions.',
-            arch: 'Microservices-based, Event-driven architecture with high throughput.',
-            impact: 'Reduced latency by 40% and improved system reliability to 99.9%.',
-            tags: ['#scalable', '#cloud-native', '#high-perf']
+            problem: 'Providing a private, secure, and encrypted platform for users to track their daily mental well-being metrics.',
+            arch: 'Privacy-first architecture with client-side encryption and a lightweight React-based visualization engine.',
+            impact: 'Recommended by 5+ regional health practitioners for daily status tracking among high-stress professionals.',
+            tags: ['#HealthTech', '#Privacy', '#Productivity']
         }
     };
 
     function getCaseStudy(repoName) {
-        const normalized = repoName.toUpperCase().replace(/-/g, ' ');
-        return CASE_STUDIES[normalized] || CASE_STUDIES[repoName.toUpperCase()];
+        const upper = repoName.toUpperCase();
+        // Try direct key, then replacing all hyphens with underscores, then replacing all underscores with hyphens
+        return CASE_STUDIES[upper] ||
+            CASE_STUDIES[upper.replace(/-/g, '_')] ||
+            CASE_STUDIES[upper.replace(/_/g, '-')] ||
+            CASE_STUDIES[upper.replace(/-/g, ' ')];
     }
 
     async function fetchProjects() {

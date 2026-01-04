@@ -1,29 +1,33 @@
-// Register GSAP Plugins
-gsap.registerPlugin(ScrollTrigger);
+// Initialize GSAP & ScrollTrigger with Failsafe
+function initAnimations() {
+    if (typeof gsap !== 'undefined' && typeof ScrollTrigger !== 'undefined') {
+        gsap.registerPlugin(ScrollTrigger);
+    }
 
-// Initialize Lenis Smooth Scroll
-const lenis = new Lenis({
-    duration: 1.2,
-    easing: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t)),
-    paddingInner: 0,
-    paddingOuter: 0,
-});
+    // Initialize Lenis Smooth Scroll
+    if (typeof Lenis !== 'undefined') {
+        const lenis = new Lenis({
+            duration: 1.2,
+            easing: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t)),
+            smooth: true
+        });
 
-function raf(time) {
-    lenis.raf(time);
-    requestAnimationFrame(raf);
+        function raf(time) {
+            lenis.raf(time);
+            requestAnimationFrame(raf);
+        }
+        requestAnimationFrame(raf);
+
+        // Integrate with GSAP
+        lenis.on('scroll', ScrollTrigger.update);
+        gsap.ticker.add((time) => {
+            lenis.raf(time * 1000);
+        });
+        gsap.ticker.lagSmoothing(0);
+    }
 }
 
-requestAnimationFrame(raf);
-
-// Integrate Lenis with GSAP ScrollTrigger
-lenis.on('scroll', ScrollTrigger.update);
-
-gsap.ticker.add((time) => {
-    lenis.raf(time * 1000);
-});
-
-gsap.ticker.lagSmoothing(0);
+initAnimations();
 
 // Basic Animations & Logic
 document.addEventListener('DOMContentLoaded', () => {
@@ -62,10 +66,37 @@ document.addEventListener('DOMContentLoaded', () => {
 
     if (heroTypingElement) typeHero();
 
+    // --- Terminal Sound System (Web Audio API) ---
+    const AudioContext = window.AudioContext || window.webkitAudioContext;
+    let audioCtx = null;
+
+    function playTypeSound() {
+        if (!audioCtx) audioCtx = new AudioContext();
+        
+        const oscillator = audioCtx.createOscillator();
+        const gainNode = audioCtx.createGain();
+
+        oscillator.type = 'square';
+        oscillator.frequency.setValueAtTime(150 + Math.random() * 50, audioCtx.currentTime);
+        
+        gainNode.gain.setValueAtTime(0.02, audioCtx.currentTime);
+        gainNode.gain.exponentialRampToValueAtTime(0.0001, audioCtx.currentTime + 0.05);
+
+        oscillator.connect(gainNode);
+        gainNode.connect(audioCtx.destination);
+
+        oscillator.start();
+        oscillator.stop(audioCtx.currentTime + 0.05);
+    }
+
     // --- Terminal Typing Animation (100+ Commands) ---
     const lines = [
         "//  SECTION 1 — PROJECT / SDK / DEV COMMANDS",
         "$ git clone github.com/dakshdubey/evoauth-sdk",
+        "Cloning into 'evoauth-sdk'...",
+        "remote: Enumerating objects: 452, done.",
+        "remote: Counting objects: 100% (452/452), done.",
+        "Receiving objects: 100% (452/452), 1.24 MiB | 4.2 MB/s, done.",
         "$ cd evoauth-sdk",
         "$ npm install",
         "✔ dependencies installed [1.2s]",
@@ -76,103 +107,75 @@ document.addEventListener('DOMContentLoaded', () => {
         "$ npm audit",
         "✔ 0 vulnerabilities found",
         "$ npm publish --access public",
-        "✔ evoauth-sdk published successfully",
+        "✔ evoauth-sdk@1.0.0 published successfully",
         "$ node index.js",
+        "Server listening on port 3000 (production mode)",
         "$ npm version patch",
+        "v1.0.1",
         "$ npm pack",
+        "evoauth-sdk-1.0.1.tgz created",
         "$ npm run lint",
+        "✔ No linting errors found.",
         "$ npm run format",
+        "✔ All files formatted.",
         "$ npm run docs",
+        "✔ JSDoc documentation generated in /docs",
         "$ npm run coverage",
+        "✔ Code coverage: 98.4%",
         "$ npm run benchmark",
+        "✔ Benchmark: 1.2M ops/sec",
         "$ npm run security-check",
-        "$ npm run prepublishOnly",
+        "✔ Scanning dependencies... No threats detected.",
         "$ npm run release",
+        "✔ Creating release v1.0.1... Done.",
         "$ npm view evoauth-sdk",
-        "$ npm info evo-map-sdk",
-        "$ npm deprecate evo-old-sdk",
-        "$ npm login",
-        "$ npm whoami",
-        "$ npm logout",
-        "$ npm cache clean --force",
-        "$ npm config list",
+        "{ name: 'evoauth-sdk', version: '1.0.1', ... }",
         "",
         "// SECTION 2 — SECURITY / AUTH / SYSTEM THINKING",
-        "$ openssl version",
-        "$ openssl rand -hex 32",
         "$ openssl genrsa -out private.key 2048",
+        "Generating RSA private key, 2048 bit long modulus...",
         "$ openssl rsa -in private.key -pubout",
-        "$ openssl dgst -sha256 file.txt",
+        "-----BEGIN PUBLIC KEY-----",
+        "MIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEAxS...",
         "$ node -e \"require('crypto').randomBytes(32).toString('hex')\"",
+        "7fb5c4e9d0a2b4... (secure hex seed)",
         "$ echo $JWT_SECRET",
+        "********************************",
         "$ export NODE_ENV=production",
-        "$ printenv | grep AUTH",
         "$ cat .env",
+        "AUTH_MODE=biometric",
+        "POLICY_ENGINE=local_closed",
         "$ chmod 600 .env",
-        "$ chmod 700 ./secure",
-        "$ id",
-        "$ whoami",
-        "$ groups",
-        "$ ulimit -a",
+        "✔ Permissions updated",
         "$ ps aux | grep node",
-        "$ netstat -tulnp",
+        "daksh   1245  0.2  1.4  node server.js",
         "$ lsof -i :3000",
+        "COMMAND   PID   USER   TYPE  NODE NAME",
+        "node     1245  daksh   IPv4  LISTEN *:3000",
         "",
-        "//  SECTION 3 — ETHICAL HACKING / TESTING VIBE (SAFE)",
-        "// ⚠️ Ye sab “testing / learning / audit” context me hain",
-        "$ nmap --version",
         "$ nmap -p 80,443 localhost",
-        "$ nmap -sS 127.0.0.1",
-        "$ curl -I http://localhost",
-        "$ curl -X OPTIONS http://localhost/api",
+        "PORT    STATE SERVICE",
+        "80/tcp  open  http",
+        "443/tcp open  https",
         "$ curl -X GET http://localhost/health",
-        "$ curl -X POST http://localhost/login",
-        "$ curl -H \"Authorization: Bearer <token>\"",
-        "$ http GET localhost/api/status",
-        "$ http --headers localhost",
-        "$ http OPTIONS localhost",
-        "$ nikto -Version",
-        "✔ Simulated security scan completed",
-        "",
-        "//  SECTION 4 — LOGS / MONITORING / PROD FEEL",
+        "{ \"status\": \"UP\", \"uptime\": \"42d 12h\" }",
         "$ tail -f logs/app.log",
-        "$ tail -n 50 logs/auth.log",
-        "$ grep ERROR logs/app.log",
-        "$ grep WARN logs/app.log",
-        "$ journalctl -u nodeapp",
+        "[INFO] Policy evaluation: SUCCESS (0.4ms)",
+        "[WARN] Rate limit approaching for node-124",
+        "[INFO] Cryptographic signature verified.",
         "$ pm2 list",
-        "$ pm2 status",
-        "$ pm2 logs",
-        "$ pm2 restart all",
-        "$ pm2 monit",
+        "┌────┬───────┬────────┬─────────┬────────┬─────┬────────┐",
+        "│ id │ name  │ status │ restart │ uptime │ cpu │ mem    │",
+        "├────┼───────┼────────┼─────────┼────────┼─────┼────────┤",
+        "│ 0  │ api   │ online │ 0       │ 42d    │ 0%  │ 45.2mb │",
+        "└────┴───────┴────────┴─────────┴────────┴─────┴────────┘",
         "$ docker ps",
-        "$ docker images",
-        "$ docker logs api-container",
-        "$ uptime",
-        "$ df -h",
-        "$ free -m",
-        "",
-        "//  SECTION 5 — HACKER AESTHETIC (PORTFOLIO ONLY)",
-        "$ echo \"Initializing secure runtime...\"",
-        "✔ Initializing secure runtime...",
-        "$ echo \"Loading policy engine...\"",
-        "✔ Loading policy engine...",
-        "$ echo \"Verifying cryptographic signatures...\"",
-        "✔ Verifying cryptographic signatures...",
-        "$ echo \"Fail-closed authorization enabled\"",
-        "✔ Fail-closed authorization enabled",
-        "$ echo \"Policy evaluation: LOCAL\"",
-        "✔ Policy evaluation: LOCAL",
-        "$ echo \"Latency: 0.8ms\"",
-        "✔ Latency: 0.8ms",
-        "$ echo \"No network dependency detected\"",
-        "✔ No network dependency detected",
+        "CONTAINER ID   IMAGE      STATUS          PORTS",
+        "a1b2c3d4e5f6   evo-auth   Up 14 hours     3000-\u003e3000",
         "$ echo \"Security posture: STRONG\"",
         "✔ Security posture: STRONG",
         "$ echo \"All systems operational\"",
         "✔ All systems operational",
-        "$ echo \"Build complete. Ready for production.\"",
-        "✔ Build complete. Ready for production.",
         "$ _"
     ];
 
@@ -186,40 +189,70 @@ document.addEventListener('DOMContentLoaded', () => {
     function typeTerminal() {
         if (termIndex < lines.length) {
             const currentLine = lines[termIndex];
+            
+            // If it's a command ($), type it. If it's output, show it immediately or faster.
+            const isCommand = currentLine.startsWith('$');
+            const isComment = currentLine.startsWith('//');
+            
             if (termCharIndex < currentLine.length) {
                 if (termContent) termContent.textContent += currentLine.charAt(termCharIndex);
                 termCharIndex++;
-                setTimeout(typeTerminal, termSpeed);
+                
+                // Play sound for commands/chars, not empty lines
+                if (isCommand || currentLine.trim()) playTypeSound();
+                
+                const speed = (isCommand || isComment) ? termSpeed : 2;
+                setTimeout(typeTerminal, speed);
             } else {
                 if (termContent) termContent.textContent += "\n";
                 termCharIndex = 0;
                 termIndex++;
                 if (terminal) terminal.scrollTop = terminal.scrollHeight;
-                setTimeout(typeTerminal, 400);
+                
+                const nextDelay = standsStill(currentLine) ? 1000 : 300;
+                setTimeout(typeTerminal, nextDelay);
             }
         }
     }
 
+    function standsStill(line) {
+        return line.includes('✔') || line.includes('Cloning') || line.startsWith('//');
+    }
+
+    window.typeTerminal = typeTerminal;
+
     // --- Terminal Typing Trigger ---
     ScrollTrigger.create({
         trigger: ".terminal-section",
-        start: "top 70%",
+        start: "top 95%", 
         onEnter: () => {
+            if (!termStarted && termContent) {
+                termStarted = true;
+                termContent.textContent = ""; 
+                typeTerminal();
+            }
+        },
+        onEnterBack: () => {
+             if (!termStarted && termContent) {
+                termStarted = true;
+                termContent.textContent = ""; 
+                typeTerminal();
+            }
+        }
+    });
+
+    // Failsafe: Start if already significantly in view
+    const termSection = document.querySelector('.terminal-section');
+    if (termSection) {
+        const rect = termSection.getBoundingClientRect();
+        if (rect.top < window.innerHeight) {
             if (!termStarted && termContent) {
                 termStarted = true;
                 termContent.textContent = "";
                 typeTerminal();
             }
-        },
-        // Ensure it triggers even if already in view
-        onUpdate: (self) => {
-            if (self.progress > 0 && !termStarted && termContent) {
-                termStarted = true;
-                termContent.textContent = "";
-                typeTerminal();
-            }
         }
-    });
+    }
 
     // --- 3D Terminal Scroll Straightening ---
     gsap.to(".terminal", {
