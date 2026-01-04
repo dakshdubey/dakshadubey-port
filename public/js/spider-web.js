@@ -62,7 +62,7 @@ if (canvas) {
                     ctx.beginPath();
                     ctx.moveTo(p1.x, p1.y);
                     ctx.lineTo(p2.x, p2.y);
-                    ctx.strokeStyle = `rgba(59, 130, 246, ${1 - dist / maxLinkDist})`;
+                    ctx.strokeStyle = `rgba(59, 130, 246, ${(1 - dist / maxLinkDist) * 0.2})`;
                     ctx.lineWidth = 0.5;
                     ctx.stroke();
                 }

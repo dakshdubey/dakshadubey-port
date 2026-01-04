@@ -15,7 +15,7 @@
     <script src="https://unpkg.com/@studio-freight/lenis@1.0.29/dist/lenis.min.js"></script>
 </head>
 
-<body class="bg-slate-50 overflow-x-hidden scroll-smooth">
+<body class="bg-[#0a0a0b] text-slate-400 overflow-x-hidden scroll-smooth">
     <!-- Navbar -->
     <nav class="fixed top-0 left-0 right-0 z-[100] px-6 py-4 md:px-12 glass-nav transition-all duration-300">
         <div class="max-w-7xl mx-auto flex justify-between items-center">
@@ -25,7 +25,7 @@
                     <span class="text-white font-black text-xl navbar-logo-icon">D</span>
                 </div>
                 <span
-                    class="text-xl font-black text-slate-900 tracking-tighter uppercase navbar-logo-text">DakshaDubey</span>
+                    class="text-xl font-black text-white tracking-tighter uppercase navbar-logo-text">DakshaDubey</span>
             </div>
             <div class="hidden md:flex items-center gap-8">
                 <a href="#about"
@@ -42,12 +42,12 @@
             </div>
             <div class="flex items-center gap-4 navbar-btn-group">
                 <a href="https://www.linkedin.com/in/daksha-dubey-2117102a3/" target="_blank"
-                    class="hidden md:inline-flex text-xs font-black text-slate-900 uppercase tracking-widest px-6 py-3 rounded-xl hover:bg-white/50 transition-all btn-signin">LinkedIn</a>
+                    class="hidden md:inline-flex text-xs font-black text-white uppercase tracking-widest px-6 py-3 rounded-xl hover:bg-white/10 transition-all btn-signin">LinkedIn</a>
                 <a href="#contact"
                     class="hidden md:inline-flex grad-main text-white text-xs font-black uppercase tracking-widest px-8 py-3.5 rounded-xl shadow-xl shadow-blue-500/20 hover:scale-105 active:scale-95 transition-all btn-join">Contact</a>
 
                 <!-- Mobile Hamburger -->
-                <button id="mobile-menu-btn" class="md:hidden p-2 text-slate-900 z-[120] relative">
+                <button id="mobile-menu-btn" class="md:hidden p-2 text-white z-[120] relative">
                     <svg class="w-8 h-8" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
                             d="M4 6h16M4 12h16M4 18h16" />
@@ -59,76 +59,76 @@
 
     <!-- Mobile Menu Overlay -->
     <div id="mobile-menu"
-        class="fixed inset-0 z-[110] bg-white/95 backdrop-blur-xl flex items-center justify-center opacity-0 pointer-events-none transition-all duration-500">
+        class="fixed inset-0 z-[110] bg-[#0a0a0b]/95 backdrop-blur-xl flex items-center justify-center opacity-0 pointer-events-none transition-all duration-500">
         <div class="flex flex-col items-center gap-8">
             <a href="#about"
-                class="mobile-link text-2xl font-black text-slate-900 uppercase tracking-widest">Origins</a>
-            <a href="#skills" class="mobile-link text-2xl font-black text-slate-900 uppercase tracking-widest">Tech
+                class="mobile-link text-2xl font-black text-white uppercase tracking-widest">Origins</a>
+            <a href="#skills" class="mobile-link text-2xl font-black text-white uppercase tracking-widest">Tech
                 Hub</a>
             <a href="#projects"
-                class="mobile-link text-2xl font-black text-slate-900 uppercase tracking-widest">Projects</a>
+                class="mobile-link text-2xl font-black text-white uppercase tracking-widest">Projects</a>
             <a href="#experience"
-                class="mobile-link text-2xl font-black text-slate-900 uppercase tracking-widest">Timeline</a>
+                class="mobile-link text-2xl font-black text-white uppercase tracking-widest">Timeline</a>
             <a href="#contact"
-                class="mobile-link text-2xl font-black text-blue-600 uppercase tracking-widest">Contact</a>
+                class="mobile-link text-2xl font-black text-blue-500 uppercase tracking-widest">Contact</a>
         </div>
     </div>
 
     <!-- Hero Section -->
     <section
         class="relative min-h-screen flex items-center justify-center pt-32 md:pt-24 hero-gradient overflow-hidden">
-        <div class="max-w-5xl mx-auto px-6 text-center space-y-10 relative z-10">
+        <div class="max-w-6xl mx-auto px-6 text-center space-y-12 relative z-10">
             <div
-                class="inline-flex items-center gap-2 px-4 py-2 bg-blue-50 rounded-full border border-blue-100 animate-fade-in">
+                class="inline-flex items-center gap-2 px-4 py-2 bg-blue-500/10 rounded-full border border-blue-500/20 animate-fade-in">
                 <div class="w-1.5 h-1.5 rounded-full bg-blue-500 animate-pulse"></div>
-                <span class="text-[9px] font-black uppercase tracking-[0.3em] text-blue-600">Full-Stack Protocol
+                <span class="text-[9px] font-black uppercase tracking-[0.3em] text-blue-400">Full-Stack Protocol
                     Active</span>
             </div>
 
-            <h1
-                class="text-5xl md:text-9xl font-black text-slate-900 tracking-tighter leading-[0.9] md:leading-[0.85] mb-6 mix-blend-multiply">
-                Engineering <br>
-                <span class="relative inline-block">
-                    <span class="relative z-10 text-transparent bg-clip-text grad-main">The Future</span>
-                    <span class="absolute -bottom-2 left-0 w-full h-4 bg-blue-200/50 -skew-x-12 -z-10"></span>
+            <h1 class="text-6xl md:text-9xl font-black text-white tracking-tighter leading-[0.85] mb-6">
+                Architecting <br>
+                <span class="relative inline-block text-transparent bg-clip-text grad-main">
+                    Resilient Systems
                 </span>
             </h1>
 
-            <p
-                class="text-base md:text-xl text-slate-500 font-medium max-w-2xl mx-auto leading-relaxed animate-fade-in delay-200 px-4">
-                Founder & CEO – Eventofu | Director | Leading a SaaS-Based B2B2C Event-Tech Platform. Full-Stack
-                Developer specializing in Strategy & Critical Thinking, AI, Robotics, and Space Tech.
+            <p class="text-lg md:text-2xl text-slate-400 font-medium max-w-3xl mx-auto leading-relaxed px-4">
+                Full-Stack Architect & Founder specializing in <span id="hero-typing" class="text-white"></span><span
+                    class="type-cursor"></span>
             </p>
 
-            <div class="flex flex-col md:flex-row items-center justify-center gap-6 animate-fade-in delay-300">
-                <a href="#projects" class="btn-primary px-12 py-5 text-sm tracking-[0.2em] w-full md:w-auto">VIEW
-                    PROJECTS</a>
-                <a href="#skills" class="btn-secondary px-12 py-5 text-sm tracking-[0.2em] w-full md:w-auto">EXPLORE
-                    STACK</a>
-            </div>
-
-            <div class="pt-20 grid grid-cols-2 md:grid-cols-4 gap-8 opacity-40 animate-fade-in delay-400">
-                <div class="space-y-1">
-                    <p class="text-3xl font-black text-slate-900">100%</p>
-                    <p class="text-[9px] font-black uppercase tracking-widest">Delivery Rate</p>
-                </div>
-                <div class="space-y-1">
-                    <p class="text-3xl font-black text-slate-900">2024</p>
-                    <p class="text-[9px] font-black uppercase tracking-widest">Founder Origin</p>
-                </div>
-                <div class="space-y-1">
-                    <p class="text-3xl font-black text-slate-900">AI+</p>
-                    <p class="text-[9px] font-black uppercase tracking-widest">Integrated Stack</p>
-                </div>
-                <div class="space-y-1">
-                    <p class="text-3xl font-black text-slate-900">24/7</p>
-                    <p class="text-[9px] font-black uppercase tracking-widest">Innovation Pulse</p>
-                </div>
+            <div class="flex flex-col md:flex-row items-center justify-center gap-6 pt-6 animate-fade-in delay-300">
+                <a href="#projects" class="btn-primary px-12 py-5 text-sm tracking-[0.2em] w-full md:w-auto">SYSTEM
+                    ARCHITECTURE</a>
+                <a href="#about"
+                    class="btn-secondary px-12 py-5 text-sm tracking-[0.2em] w-full md:w-auto bg-transparent border-slate-800 text-white hover:bg-slate-800">EXEC
+                    SUMMARY</a>
             </div>
         </div>
 
+        <!-- Parallax Background Elements -->
         <div
             class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[1200px] h-[1200px] bg-blue-500/5 rounded-full blur-[120px] pointer-events-none">
+        </div>
+    </section>
+
+    <!-- Terminal Showcase Section -->
+    <section class="terminal-section">
+        <div class="max-w-7xl mx-auto px-6 w-full flex flex-col items-center">
+            <div class="text-center space-y-4 mb-20 scroll-reveal">
+                <p class="case-study-label">Live Operations</p>
+                <h2 class="text-4xl md:text-5xl font-black text-white tracking-tight">Terminal Showcase</h2>
+            </div>
+
+            <div class="terminal scroll-reveal">
+                <div class="terminal-header">
+                    <span class="dot red"></span>
+                    <span class="dot yellow"></span>
+                    <span class="dot green"></span>
+                    <span class="terminal-title">dakshdubey — bash — 80x24</span>
+                </div>
+                <pre id="terminal-output"></pre>
+            </div>
         </div>
     </section>
 
@@ -144,23 +144,23 @@
                 </div>
             </div>
             <div class="space-y-8">
-                <p class="text-[11px] font-black text-blue-600 uppercase tracking-[0.4em]">The Architect</p>
-                <h2 class="text-4xl md:text-5xl font-black text-slate-900 tracking-tight text-left mb-0">Driven by
+                <p class="case-study-label">The Architect</p>
+                <h2 class="text-4xl md:text-5xl font-black text-white tracking-tight text-left mb-0">Driven by
                     curiosity, <br>built for speed.</h2>
-                <p class="text-slate-500 text-lg font-medium leading-relaxed">
+                <p class="text-slate-400 text-lg font-medium leading-relaxed">
                     I am Daksha Dubey, a Full-Stack Developer specializing in Android & Web Development, Backend
                     Systems, and Cloud Integration. As Founder & CEO of Eventofu, I'm building a SaaS-based B2B2C
                     event-tech platform that transforms how events are managed. My passion extends to AI, robotics, and
                     space technology, where I create futuristic solutions that bridge imagination and reality.
                 </p>
                 <div class="grid grid-cols-2 gap-6 pt-4">
-                    <div class="p-4 bg-slate-50 rounded-2xl border border-slate-100">
-                        <p class="text-xs font-black text-blue-600 uppercase tracking-widest mb-1">Founder</p>
-                        <p class="text-slate-900 font-bold">Eventofu</p>
+                    <div class="p-4 bg-white/5 rounded-2xl border border-white/5">
+                        <p class="text-xs font-black text-blue-400 uppercase tracking-widest mb-1">Founder</p>
+                        <p class="text-white font-bold">Eventofu</p>
                     </div>
-                    <div class="p-4 bg-slate-50 rounded-2xl border border-slate-100">
-                        <p class="text-xs font-black text-blue-600 uppercase tracking-widest mb-1">Focus</p>
-                        <p class="text-slate-900 font-bold">AI & Robotics</p>
+                    <div class="p-4 bg-white/5 rounded-2xl border border-white/5">
+                        <p class="text-xs font-black text-blue-400 uppercase tracking-widest mb-1">Focus</p>
+                        <p class="text-white font-bold">AI & Robotics</p>
                     </div>
                 </div>
             </div>
@@ -171,8 +171,8 @@
     <section id="skills" class="py-32 bg-white relative overflow-hidden">
         <div class="max-w-7xl mx-auto px-6">
             <div class="text-center space-y-4 mb-20 scroll-reveal">
-                <p class="text-[11px] font-black text-blue-600 uppercase tracking-[0.4em]">Integrated Stack</p>
-                <h2 class="text-4xl md:text-5xl font-black text-slate-900 tracking-tight">The Tech Hub</h2>
+                <p class="case-study-label">Integrated Stack</p>
+                <h2 class="text-4xl md:text-5xl font-black text-white tracking-tight">The Tech Hub</h2>
             </div>
 
             <div class="perspective-container relative min-h-[600px]">
@@ -181,54 +181,104 @@
                 <div class="relative z-10 grid grid-cols-1 md:grid-cols-3 gap-12 items-center">
                     <div class="text-center scroll-reveal" style="transition-delay: 100ms;">
                         <div
-                            class="w-40 h-40 mx-auto bg-white rounded-[2rem] shadow-xl border border-slate-100 flex items-center justify-center float-3d mb-8">
-                            <span class="text-3xl font-black text-slate-900">Web</span>
+                            class="w-40 h-40 mx-auto bg-white/5 rounded-[2rem] shadow-xl border border-white/10 flex items-center justify-center float-3d mb-8">
+                            <span class="text-3xl font-black text-white">Web</span>
                         </div>
-                        <p class="text-xs font-black text-slate-400 uppercase tracking-[0.2em]">React • Node.js • PHP
+                        <p class="text-xs font-black text-slate-500 uppercase tracking-[0.2em]">React • Node.js • PHP
                         </p>
-                        <p class="text-xs font-medium text-slate-300 mt-2">HTML • XML • RESTful APIs</p>
+                        <p class="text-xs font-medium text-slate-600 mt-2">HTML • XML • RESTful APIs</p>
                     </div>
 
                     <div class="text-center scroll-reveal">
                         <div
-                            class="w-56 h-56 mx-auto grad-main rounded-[2.5rem] shadow-2xl flex items-center justify-center float-3d border-4 border-white/20">
+                            class="w-56 h-56 mx-auto grad-main rounded-[2.5rem] shadow-2xl flex items-center justify-center float-3d border-4 border-white/10">
                             <span class="text-5xl font-black text-white">CORE</span>
                         </div>
-                        <h3 class="text-2xl font-black text-slate-900 mt-8 mb-3">Innovation Engine</h3>
-                        <p class="text-slate-500 font-medium">Full-Stack Architecture</p>
-                        <p class="text-xs font-medium text-slate-400 mt-2">JavaScript • Python • Java • C • C++</p>
-                        <p class="text-xs font-medium text-slate-400 mt-1">MySQL • MongoDB • Firebase</p>
+                        <h3 class="text-2xl font-black text-white mt-8 mb-3">Innovation Engine</h3>
+                        <p class="text-slate-400 font-medium">Full-Stack Architecture</p>
+                        <p class="text-xs font-medium text-slate-500 mt-2">JavaScript • Python • Java • C • C++</p>
+                        <p class="text-xs font-medium text-slate-500 mt-1">MySQL • MongoDB • Firebase</p>
                     </div>
 
                     <div class="text-center scroll-reveal" style="transition-delay: 200ms;">
                         <div
-                            class="w-40 h-40 mx-auto bg-white rounded-[2rem] shadow-xl border border-slate-100 flex items-center justify-center float-3d mb-8">
-                            <span class="text-3xl font-black text-slate-900">Mobile</span>
+                            class="w-40 h-40 mx-auto bg-white/5 rounded-[2rem] shadow-xl border border-white/10 flex items-center justify-center float-3d mb-8">
+                            <span class="text-3xl font-black text-white">Mobile</span>
                         </div>
-                        <p class="text-xs font-black text-slate-400 uppercase tracking-[0.2em]">Android • Kotlin • Java
+                        <p class="text-xs font-black text-slate-500 uppercase tracking-[0.2em]">Android • Kotlin • Java
                         </p>
-                        <p class="text-xs font-medium text-slate-300 mt-2">Cloud Integration • Backend</p>
+                        <p class="text-xs font-medium text-slate-600 mt-2">Cloud Integration • Backend</p>
                     </div>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Project Slider -->
-    <section id="projects" class="py-32 bg-slate-50 overflow-hidden">
+    <!-- System Thinking Section -->
+    <section id="system-thinking" class="py-32 bg-slate-50 scroll-reveal">
         <div class="max-w-7xl mx-auto px-6">
-            <div class="text-center space-y-4 mb-16 scroll-reveal">
-                <p class="text-[11px] font-black text-blue-600 uppercase tracking-[0.4em]">Showcase</p>
-                <h2 class="text-4xl md:text-5xl font-black text-slate-900 tracking-tight">Featured Operations</h2>
+            <div class="text-center space-y-4 mb-20">
+                <p class="case-study-label">Mental Framework</p>
+                <h2 class="text-4xl md:text-5xl font-black text-white tracking-tight">System Thinking</h2>
+            </div>
+            
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+                <div class="thinking-card group">
+                    <div class="w-12 h-12 bg-blue-500/10 rounded-xl flex items-center justify-center mb-6 group-hover:bg-blue-500/20 transition-colors">
+                        <svg class="w-6 h-6 text-blue-500" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z" />
+                        </svg>
+                    </div>
+                    <h4 class="text-xl font-black text-white mb-4">Scalability</h4>
+                    <p class="text-slate-400 text-sm leading-relaxed">Designing for horizontal growth. Sharding, load balancing, and stateless architecture are defaults, not afterthoughts.</p>
+                </div>
+
+                <div class="thinking-card group">
+                    <div class="w-12 h-12 bg-emerald-500/10 rounded-xl flex items-center justify-center mb-6 group-hover:bg-emerald-500/20 transition-colors">
+                        <svg class="w-6 h-6 text-emerald-500" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 00-2 2zm10-10V7a4 4 0 00-8 0v4h8z" />
+                        </svg>
+                    </div>
+                    <h4 class="text-xl font-black text-white mb-4">Security</h4>
+                    <p class="text-slate-400 text-sm leading-relaxed">Zero-trust mindset. Implementing robust OAuth2, JWT protocols, and encrypted data pipelines at every node.</p>
+                </div>
+
+                <div class="thinking-card group">
+                    <div class="w-12 h-12 bg-purple-500/10 rounded-xl flex items-center justify-center mb-6 group-hover:bg-purple-500/20 transition-colors">
+                        <svg class="w-6 h-6 text-purple-500" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z" />
+                        </svg>
+                    </div>
+                    <h4 class="text-xl font-black text-white mb-4">Developer Experience</h4>
+                    <p class="text-slate-400 text-sm leading-relaxed">Building tools that developers love. Clean SDKs, strict typing, and comprehensive documentation for seamless integration.</p>
+                </div>
+
+                <div class="thinking-card group">
+                    <div class="w-12 h-12 bg-amber-500/10 rounded-xl flex items-center justify-center mb-6 group-hover:bg-amber-500/20 transition-colors">
+                        <svg class="w-6 h-6 text-amber-500" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 7h8m0 0v8m0-8l-8 8-4-4-6 6" />
+                        </svg>
+                    </div>
+                    <h4 class="text-xl font-black text-white mb-4">Performance</h4>
+                    <p class="text-slate-400 text-sm leading-relaxed">Optimizing for the critical path. Core Web Vitals, low-latency APIs, and efficient resource allocation.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Case Studies / Projects -->
+    <section id="projects" class="py-32 bg-slate-900 overflow-hidden">
+        <div class="max-w-7xl mx-auto px-6">
+            <div class="text-center space-y-4 mb-20 scroll-reveal">
+                <p class="case-study-label">Featured Operations</p>
+                <h2 class="text-4xl md:text-5xl font-black text-white tracking-tight">Case Studies</h2>
             </div>
 
-            <div id="projects-grid" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-                <!-- Projects will be dynamically inserted here -->
+            <div id="projects-grid" class="grid grid-cols-1 md:grid-cols-2 gap-12">
+                <!-- Projects will be dynamically inserted here in case study format -->
                 <div class="col-span-full text-center py-12">
-                    <div
-                        class="inline-block animate-spin rounded-full h-8 w-8 border-4 border-blue-500 border-t-transparent">
-                    </div>
-                    <p class="mt-4 text-slate-500 font-medium">Loading protocol nodes...</p>
+                    <div class="inline-block animate-spin rounded-full h-8 w-8 border-4 border-blue-500 border-t-transparent"></div>
+                    <p class="mt-4 text-slate-500 font-medium">Synchronizing project nodes...</p>
                 </div>
             </div>
         </div>
@@ -238,8 +288,8 @@
     <section id="experience" class="py-32 bg-white scroll-reveal">
         <div class="max-w-4xl mx-auto px-6">
             <div class="text-center space-y-4 mb-20">
-                <p class="text-[11px] font-black text-blue-600 uppercase tracking-[0.4em]">Trajectory</p>
-                <h2 class="text-4xl md:text-5xl font-black text-slate-900 tracking-tight">Executive Timeline</h2>
+                <p class="case-study-label">Trajectory</p>
+                <h2 class="text-4xl md:text-5xl font-black text-white tracking-tight">Executive Timeline</h2>
             </div>
 
             <div
@@ -329,8 +379,8 @@
                             <span class="text-slate-400 text-[10px] font-black uppercase tracking-widest">Jan 2025 - Apr
                                 2025</span>
                         </div>
-                        <h4 class="text-xl font-black text-slate-900">Intern</h4>
-                        <p class="text-slate-500 font-medium text-sm mt-3">ArctikkCircle | Contributing to innovative
+                        <h4 class="text-xl font-black text-white">Intern</h4>
+                        <p class="text-slate-400 font-medium text-sm mt-3">ArctikkCircle | Contributing to innovative
                             development projects and technical solutions.</p>
                     </div>
                 </div>
@@ -342,8 +392,8 @@
     <section id="education" class="py-32 bg-slate-50 scroll-reveal">
         <div class="max-w-4xl mx-auto px-6">
             <div class="text-center space-y-4 mb-20">
-                <p class="text-[11px] font-black text-blue-600 uppercase tracking-[0.4em]">Academic Foundation</p>
-                <h2 class="text-4xl md:text-5xl font-black text-slate-900 tracking-tight">Education</h2>
+                <p class="case-study-label">Academic Foundation</p>
+                <h2 class="text-4xl md:text-5xl font-black text-white tracking-tight">Education</h2>
             </div>
 
             <div class="space-y-8">
@@ -393,68 +443,83 @@
         </div>
     </section>
 
+    <!-- Roadmap Section -->
+    <section id="roadmap" class="py-32 bg-slate-50 scroll-reveal">
+        <div class="max-w-4xl mx-auto px-6">
+            <div class="text-center space-y-4 mb-20">
+                <p class="case-study-label">Future Nodes</p>
+                <h2 class="text-4xl md:text-5xl font-black text-white tracking-tight">What I'm Building Next</h2>
+            </div>
+            
+            <div class="space-y-8">
+                <div class="thinking-card group flex flex-col md:flex-row gap-8 items-start">
+                    <div class="text-3xl opacity-50 group-hover:opacity-100 transition-opacity">01</div>
+                    <div>
+                        <h4 class="text-xl font-black text-white mb-2">Neural Event Core</h4>
+                        <p class="text-slate-400 text-sm leading-relaxed mb-4">Integrating LLMs into the Eventofu ecosystem for automated logistics and predictive attendee engagement.</p>
+                        <span class="inline-block px-3 py-1 bg-blue-500/10 text-blue-400 text-[10px] font-black uppercase rounded-full">Prototyping</span>
+                    </div>
+                </div>
+
+                <div class="thinking-card group flex flex-col md:flex-row gap-8 items-start">
+                    <div class="text-3xl opacity-50 group-hover:opacity-100 transition-opacity">02</div>
+                    <div>
+                        <h4 class="text-xl font-black text-white mb-2">Edge Auth Protocol</h4>
+                        <p class="text-slate-400 text-sm leading-relaxed mb-4">A low-latency, decentralized authentication layer designed for high-concurrency IoT environments.</p>
+                        <span class="inline-block px-3 py-1 bg-emerald-500/10 text-emerald-400 text-[10px] font-black uppercase rounded-full">Research</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
     <!-- Contact CTA -->
-    <section id="contact" class="bg-slate-900 py-32 relative overflow-hidden">
-        <!-- Animated Background Mesh (CSS based) -->
+    <section id="contact" class="bg-slate-900 py-40 relative overflow-hidden">
         <div class="absolute inset-0 z-0">
-            <div class="absolute top-0 left-1/4 w-96 h-96 bg-blue-600/20 rounded-full blur-[100px] animate-pulse"></div>
-            <div class="absolute bottom-0 right-1/4 w-96 h-96 bg-purple-600/20 rounded-full blur-[100px] animate-pulse"
-                style="animation-delay: 1s;"></div>
+            <div class="absolute top-0 left-1/4 w-96 h-96 bg-blue-600/10 rounded-full blur-[100px] animate-pulse"></div>
+            <div class="absolute bottom-0 right-1/4 w-96 h-96 bg-purple-600/10 rounded-full blur-[100px] animate-pulse" style="animation-delay: 1s;"></div>
         </div>
 
         <div class="max-w-5xl mx-auto px-6 text-center space-y-12 relative z-10">
-            <p class="text-[11px] font-black text-blue-400 uppercase tracking-[0.4em] mb-4">Protocol Expansion</p>
+            <p class="case-study-label">Network Sync</p>
             <h2 class="text-5xl md:text-8xl font-black text-white tracking-tight leading-none">
-                Ready to build <br>
-                <span class="text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-emerald-400">The
-                    Future?</span>
+                Let's architect <br>
+                <span class="text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-emerald-400">the next era.</span>
             </h2>
 
-            <div class="flex flex-col md:flex-row items-center justify-center gap-8 pt-8">
-                <a href="mailto:dakshdubey1007@gmail.com"
-                    class="group relative px-12 py-5 bg-white text-slate-900 rounded-2xl font-black tracking-[0.2em] uppercase text-xs overflow-hidden transition-all hover:scale-105">
-                    <span class="relative z-10">INITIALIZE SYNC</span>
-                    <div
-                        class="absolute inset-0 bg-blue-50 transform scale-x-0 group-hover:scale-x-100 transition-transform origin-left duration-500">
-                    </div>
+            <div class="flex flex-col md:flex-row items-center justify-center gap-12 pt-12">
+                <a href="mailto:dakshdubey1007@gmail.com" class="group relative px-12 py-6 bg-white text-slate-900 rounded-2xl font-black tracking-[0.2em] uppercase text-xs overflow-hidden transition-all hover:scale-105">
+                    <span class="relative z-10">INITIALIZE CONNECTION</span>
+                    <div class="absolute inset-0 bg-blue-50 transform scale-x-0 group-hover:scale-x-100 transition-transform origin-left duration-500"></div>
                 </a>
-
-                <div class="flex flex-col items-center gap-2 group cursor-none">
-                    <div class="text-slate-400 font-medium group-hover:text-white transition-colors">
-                        dakshdubey1007@gmail.com</div>
-                    <a href="https://business.eventofu.com" target="_blank"
-                        class="text-blue-400 font-medium hover:text-blue-300 transition-colors flex items-center gap-2">
-                        eventofu.com
-                        <svg class="w-4 h-4 opacity-0 -translate-x-2 group-hover:opacity-100 group-hover:translate-x-0 transition-all duration-300"
-                            fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                                d="M17 8l4 4m0 0l-4 4m4-4H3" />
-                        </svg>
-                    </a>
+                
+                <div class="flex flex-col items-center md:items-start text-left gap-2 group">
+                    <span class="text-[10px] font-black text-slate-500 uppercase tracking-widest">Available for strategic partnerships</span>
+                    <div class="text-white font-bold text-lg hover:text-blue-400 transition-colors cursor-pointer">dakshdubey1007@gmail.com</div>
                 </div>
             </div>
         </div>
     </section>
 
     <!-- Footer -->
-    <footer class="py-20 bg-white border-t border-slate-100">
+    <footer class="py-20 bg-[#0a0a0b] border-t border-white/5">
         <div class="max-w-7xl mx-auto px-6 flex flex-col md:flex-row justify-between items-center gap-10 text-center">
             <div class="flex items-center gap-3">
                 <div class="w-8 h-8 grad-main rounded-lg flex items-center justify-center"><span
                         class="text-white font-black">D</span></div>
-                <span class="text-lg font-black text-slate-900 tracking-tighter uppercase">DakshaDubey</span>
+                <span class="text-lg font-black text-white tracking-tighter uppercase">DakshaDubey</span>
             </div>
-            <p class="text-[10px] font-black text-slate-400 uppercase tracking-widest leading-relaxed">
+            <p class="text-[10px] font-black text-slate-500 uppercase tracking-widest leading-relaxed">
                 © 2026 Architecture Protocol. All nodes active. <br>
                 Engineered by Team EvoXploit | Owned by Daksha Dubey
             </p>
             <div class="flex gap-8">
                 <a href="#about"
-                    class="text-[10px] font-black text-slate-400 uppercase tracking-widest hover:text-slate-900">Origins</a>
+                    class="text-[10px] font-black text-slate-500 uppercase tracking-widest hover:text-white">Origins</a>
                 <a href="#"
-                    class="text-[10px] font-black text-slate-400 uppercase tracking-widest hover:text-slate-900">Protocol</a>
+                    class="text-[10px] font-black text-slate-500 uppercase tracking-widest hover:text-white">Protocol</a>
                 <a href="#"
-                    class="text-[10px] font-black text-slate-400 uppercase tracking-widest hover:text-slate-900">Core</a>
+                    class="text-[10px] font-black text-slate-500 uppercase tracking-widest hover:text-white">Core</a>
             </div>
         </div>
     </footer>
@@ -466,15 +531,15 @@
         <div class="absolute inset-0 bg-slate-900/60 backdrop-blur-sm" id="modal-backdrop"></div>
 
         <!-- Modal Window -->
-        <div class="absolute inset-x-4 top-[5%] bottom-[5%] md:inset-x-auto md:w-full md:max-w-6xl md:left-1/2 md:-translate-x-1/2 bg-white rounded-3xl shadow-2xl overflow-hidden flex flex-col transform scale-95 transition-transform duration-300"
+        <div class="absolute inset-x-4 top-[5%] bottom-[5%] md:inset-x-auto md:w-full md:max-w-6xl md:left-1/2 md:-translate-x-1/2 bg-[#0a0a0b] rounded-3xl shadow-2xl overflow-hidden flex flex-col transform scale-95 transition-transform duration-300 border border-white/10"
             id="modal-window">
 
             <!-- Header -->
-            <div class="px-6 py-4 border-b border-slate-100 flex items-center justify-between bg-white z-10 shrink-0">
+            <div class="px-6 py-4 border-b border-white/5 flex items-center justify-between bg-[#0a0a0b] z-10 shrink-0">
                 <div>
-                    <h3 id="modal-title" class="text-xl font-black text-slate-900 uppercase tracking-tight">Project Name
+                    <h3 id="modal-title" class="text-xl font-black text-white uppercase tracking-tight">Project Name
                     </h3>
-                    <p id="modal-subtitle" class="text-xs font-bold text-slate-400 uppercase tracking-widest mt-1">Tech
+                    <p id="modal-subtitle" class="text-xs font-bold text-slate-500 uppercase tracking-widest mt-1">Tech
                         Stack</p>
                 </div>
                 <button id="modal-close" class="p-2 hover:bg-slate-100 rounded-full transition-colors group">
@@ -489,12 +554,12 @@
             <!-- Body -->
             <div class="flex-1 flex flex-col md:flex-row overflow-hidden relative">
                 <!-- Sidebar (Info) -->
-                <div class="w-full md:w-80 bg-slate-50 border-r border-slate-100 p-6 overflow-y-auto shrink-0 z-10">
+                <div class="w-full md:w-80 bg-white/5 border-r border-white/5 p-6 overflow-y-auto shrink-0 z-10">
                     <div class="space-y-6">
                         <div>
-                            <p class="text-[10px] font-black text-blue-600 uppercase tracking-widest mb-2">Description
+                            <p class="text-[10px] font-black text-blue-400 uppercase tracking-widest mb-2">Description
                             </p>
-                            <p id="modal-desc" class="text-slate-600 text-sm font-medium leading-relaxed">
+                            <p id="modal-desc" class="text-slate-400 text-sm font-medium leading-relaxed">
                                 Project details...
                             </p>
                         </div>
@@ -510,16 +575,16 @@
                             </div>
                         </div>
 
-                        <div id="sandbox-controls" class="pt-6 border-t border-slate-200">
-                            <p class="text-[10px] font-black text-slate-400 uppercase tracking-widest mb-3">SANDBOX MODE
+                        <div id="sandbox-controls" class="pt-6 border-t border-white/5">
+                            <p class="text-[10px] font-black text-slate-500 uppercase tracking-widest mb-3">SANDBOX MODE
                             </p>
                             <div class="space-y-2">
                                 <button id="btn-view-live"
-                                    class="w-full text-left px-4 py-3 rounded-xl bg-white border border-slate-200 text-xs font-bold text-slate-600 hover:border-blue-400 hover:text-blue-600 transition-all active-mode flex items-center gap-2">
+                                    class="w-full text-left px-4 py-3 rounded-xl bg-white/5 border border-white/10 text-xs font-bold text-slate-400 hover:border-blue-400 hover:text-blue-400 transition-all active-mode flex items-center gap-2">
                                     <span>🖥️</span> Live Preview
                                 </button>
                                 <button id="btn-view-code"
-                                    class="w-full text-left px-4 py-3 rounded-xl bg-white border border-slate-200 text-xs font-bold text-slate-600 hover:border-blue-400 hover:text-blue-600 transition-all flex items-center gap-2">
+                                    class="w-full text-left px-4 py-3 rounded-xl bg-white/5 border border-white/10 text-xs font-bold text-slate-400 hover:border-blue-400 hover:text-blue-600 transition-all flex items-center gap-2">
                                     <span>👨‍💻</span> Code Sandbox
                                 </button>
                             </div>
@@ -527,9 +592,9 @@
                     </div>
 
                     <!-- Main Content (Iframe) -->
-                    <div class="flex-1 bg-slate-100 relative group overflow-hidden w-full h-full min-h-[400px]">
+                    <div class="flex-1 bg-[#0a0a0b] relative group overflow-hidden w-full h-full min-h-[400px]">
                         <div id="iframe-loader" class="absolute inset-0 flex items-center justify-center z-0">
-                            <div class="animate-spin rounded-full h-8 w-8 border-4 border-slate-300 border-t-blue-500">
+                            <div class="animate-spin rounded-full h-8 w-8 border-4 border-white/10 border-t-blue-500">
                             </div>
                         </div>
                         <!-- Iframe Container -->
@@ -539,8 +604,8 @@
 
                         <!-- Fallback/Blocked Overlay -->
                         <div id="iframe-fallback"
-                            class="absolute inset-0 flex flex-col items-center justify-center bg-slate-50 z-20 hidden">
-                            <p class="text-slate-400 font-bold mb-4">Preview not available in sandbox</p>
+                            class="absolute inset-0 flex flex-col items-center justify-center bg-[#0a0a0b] z-20 hidden">
+                            <p class="text-slate-500 font-bold mb-4">Preview not available in sandbox</p>
                             <a id="modal-btn-fallback" href="#" target="_blank"
                                 class="btn-primary px-8 py-3 text-xs">OPEN IN NEW TAB</a>
                         </div>
