@@ -72,21 +72,45 @@ document.addEventListener('DOMContentLoaded', () => {
 
     function playTypeSound() {
         if (!audioCtx) audioCtx = new AudioContext();
-        
-        const oscillator = audioCtx.createOscillator();
-        const gainNode = audioCtx.createGain();
 
+        const oscillator = audioCtx.createOscillator();
+        const clickOsc = audioCtx.createOscillator();
+        const lowOsc = audioCtx.createOscillator();
+        const gainNode = audioCtx.createGain();
+        const lowGain = audioCtx.createGain();
+
+        // 1. The "Body" (mid-frequency square for tactile feel)
         oscillator.type = 'square';
-        oscillator.frequency.setValueAtTime(150 + Math.random() * 50, audioCtx.currentTime);
-        
-        gainNode.gain.setValueAtTime(0.02, audioCtx.currentTime);
-        gainNode.gain.exponentialRampToValueAtTime(0.0001, audioCtx.currentTime + 0.05);
+        oscillator.frequency.setValueAtTime(110 + Math.random() * 20, audioCtx.currentTime);
+
+        // 2. The "Click" (sharp high-frequency ping)
+        clickOsc.type = 'triangle';
+        clickOsc.frequency.setValueAtTime(1400 + Math.random() * 400, audioCtx.currentTime);
+
+        // 3. The "Thud" (low frequency pulse for bottoming out)
+        lowOsc.type = 'sine';
+        lowOsc.frequency.setValueAtTime(60, audioCtx.currentTime);
+
+        gainNode.gain.setValueAtTime(0.015, audioCtx.currentTime);
+        gainNode.gain.exponentialRampToValueAtTime(0.0001, audioCtx.currentTime + 0.06);
+
+        lowGain.gain.setValueAtTime(0.012, audioCtx.currentTime);
+        lowGain.gain.exponentialRampToValueAtTime(0.0001, audioCtx.currentTime + 0.04);
 
         oscillator.connect(gainNode);
+        clickOsc.connect(gainNode);
+        lowOsc.connect(lowGain);
+
         gainNode.connect(audioCtx.destination);
+        lowGain.connect(audioCtx.destination);
 
         oscillator.start();
-        oscillator.stop(audioCtx.currentTime + 0.05);
+        clickOsc.start();
+        lowOsc.start();
+
+        oscillator.stop(audioCtx.currentTime + 0.06);
+        clickOsc.stop(audioCtx.currentTime + 0.02);
+        lowOsc.stop(audioCtx.currentTime + 0.04);
     }
 
     // --- Terminal Typing Animation (100+ Commands) ---
@@ -181,7 +205,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
     let termIndex = 0;
     let termCharIndex = 0;
-    const termSpeed = 15;
+    const termSpeed = 40; // Slower typing
     const terminal = document.getElementById("terminal-output");
     const termContent = document.getElementById("term-content");
     let termStarted = false;
@@ -189,18 +213,18 @@ document.addEventListener('DOMContentLoaded', () => {
     function typeTerminal() {
         if (termIndex < lines.length) {
             const currentLine = lines[termIndex];
-            
+
             // If it's a command ($), type it. If it's output, show it immediately or faster.
             const isCommand = currentLine.startsWith('$');
             const isComment = currentLine.startsWith('//');
-            
+
             if (termCharIndex < currentLine.length) {
                 if (termContent) termContent.textContent += currentLine.charAt(termCharIndex);
                 termCharIndex++;
-                
+
                 // Play sound for commands/chars, not empty lines
                 if (isCommand || currentLine.trim()) playTypeSound();
-                
+
                 const speed = (isCommand || isComment) ? termSpeed : 2;
                 setTimeout(typeTerminal, speed);
             } else {
@@ -208,7 +232,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 termCharIndex = 0;
                 termIndex++;
                 if (terminal) terminal.scrollTop = terminal.scrollHeight;
-                
+
                 const nextDelay = standsStill(currentLine) ? 1000 : 300;
                 setTimeout(typeTerminal, nextDelay);
             }
@@ -224,18 +248,18 @@ document.addEventListener('DOMContentLoaded', () => {
     // --- Terminal Typing Trigger ---
     ScrollTrigger.create({
         trigger: ".terminal-section",
-        start: "top 95%", 
+        start: "top 95%",
         onEnter: () => {
             if (!termStarted && termContent) {
                 termStarted = true;
-                termContent.textContent = ""; 
+                termContent.textContent = "";
                 typeTerminal();
             }
         },
         onEnterBack: () => {
-             if (!termStarted && termContent) {
+            if (!termStarted && termContent) {
                 termStarted = true;
-                termContent.textContent = ""; 
+                termContent.textContent = "";
                 typeTerminal();
             }
         }
