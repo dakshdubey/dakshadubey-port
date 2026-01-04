@@ -72,6 +72,11 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     };
 
+    function getCaseStudy(repoName) {
+        const normalized = repoName.toUpperCase().replace(/-/g, ' ');
+        return CASE_STUDIES[normalized] || CASE_STUDIES[repoName.toUpperCase()];
+    }
+
     async function fetchProjects() {
         try {
             const response = await fetch(API_URL);
@@ -105,11 +110,11 @@ document.addEventListener('DOMContentLoaded', () => {
         const fallbackList = Object.keys(CASE_STUDIES).map((key, index) => ({
             id: `fallback-${index}`,
             name: key,
-            full_name: `${GITHUB_USERNAME}/${key}`,
+            full_name: `${GITHUB_USERNAME}/${key.replace(/ /g, '-')}`,
             description: CASE_STUDIES[key].problem,
             language: 'Systems',
             pushed_at: new Date().toISOString(),
-            html_url: `https://github.com/${GITHUB_USERNAME}/${key.toLowerCase()}`,
+            html_url: `https://github.com/${GITHUB_USERNAME}/${key.toLowerCase().replace(/ /g, '-')}`,
             homepage: null,
             releaseTag: 'v1.0.0-stable'
         }));
@@ -141,7 +146,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
     function createProjectCard(repo) {
         const date = new Date(repo.pushed_at).toLocaleDateString('en-US', { year: 'numeric', month: 'short' });
-        const caseStudy = CASE_STUDIES[repo.name.toUpperCase()] || {
+        const caseStudy = getCaseStudy(repo.name) || {
             problem: repo.description || 'Architecting high-performance digital solutions.',
             arch: 'Microservices-based, Event-driven architecture with high throughput.',
             impact: 'Reduced latency by 40% and improved system reliability to 99.9%.',
@@ -154,7 +159,7 @@ document.addEventListener('DOMContentLoaded', () => {
             <div class="project-case-study scroll-reveal p-8 flex flex-col justify-between h-full hover-lift">
                 <div class="relative z-10">
                     <div class="flex items-center justify-between mb-8">
-                        <span class="case-study-label">${language} • ${repo.releaseTag} • ${date}</span>
+                        <span class="case-study-label text-blue-400 font-bold tracking-widest">${language.toUpperCase()} • ${repo.releaseTag.toUpperCase()} • ${date.toUpperCase()}</span>
                         <div class="flex gap-2">
                             <a href="${repo.html_url}" target="_blank" class="text-slate-500 hover:text-white transition-colors">
                                 <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24"><path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.041-1.416-4.041-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/></svg>
@@ -208,13 +213,19 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // --- Modal Logic ---
 
-    function openModal(repo) {
+    async function openModal(repo) {
         currentRepo = repo;
 
         // Populate Info
         modalTitle.textContent = repo.name.replace(/-/g, ' ').toUpperCase();
         modalSubtitle.textContent = repo.language || 'PROJECT';
-        modalDesc.textContent = repo.description || 'No description provided for this project.';
+
+        // Show pulse loading for description
+        modalDesc.innerHTML = `<div class="animate-pulse space-y-3">
+            <div class="h-2 bg-white/10 rounded w-3/4"></div>
+            <div class="h-2 bg-white/10 rounded"></div>
+            <div class="h-2 bg-white/10 rounded w-5/6"></div>
+        </div>`;
 
         // Buttons
         modalBtnDemo.href = repo.homepage || '#';
@@ -228,6 +239,33 @@ document.addEventListener('DOMContentLoaded', () => {
             modalBtnDemo.textContent = 'OPEN LIVE DEMO';
         }
 
+        // Fetch Real Documentation (README)
+        try {
+            const readmeUrl = `https://api.github.com/repos/${GITHUB_USERNAME}/${repo.name}/readme`;
+            const readmeResponse = await fetch(readmeUrl, {
+                headers: { 'Accept': 'application/vnd.github.v3.html' }
+            });
+
+            if (readmeResponse.ok) {
+                const html = await readmeResponse.text();
+                // Enrich with case study if available
+                const cs = CASE_STUDIES[repo.name.toUpperCase()] || CASE_STUDIES[repo.name.toUpperCase().replace(/-/g, '_')];
+                let content = '';
+                if (cs) {
+                    content += `<div class="mb-6 p-4 bg-blue-500/5 border border-blue-500/10 rounded-xl">
+                        <p class="text-[10px] font-black text-blue-400 uppercase tracking-widest mb-2 font-mono">Real-world Impact</p>
+                        <p class="text-slate-300 text-xs leading-relaxed italic">"${cs.impact}"</p>
+                    </div>`;
+                }
+                content += `<div class="prose prose-invert max-w-none text-slate-400 text-sm markdown-body">${html}</div>`;
+                modalDesc.innerHTML = content;
+            } else {
+                modalDesc.textContent = repo.description || 'No extended documentation found.';
+            }
+        } catch (error) {
+            modalDesc.textContent = repo.description || 'Unable to load live documentation.';
+        }
+
         // Default Sandbox View: Live Preview if available, else Code
         if (repo.homepage) {
             loadIframe(repo.homepage, 'live');
@@ -237,7 +275,6 @@ document.addEventListener('DOMContentLoaded', () => {
 
         // Show Modal
         modal.classList.remove('hidden');
-        // Small delay for transition
         setTimeout(() => {
             modal.classList.remove('opacity-0');
             modalWindow.classList.remove('scale-95');

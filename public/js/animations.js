@@ -17,9 +17,14 @@ function raf(time) {
 requestAnimationFrame(raf);
 
 // Integrate Lenis with GSAP ScrollTrigger
-// lenis.on('scroll', ScrollTrigger.update); // Optional: if using pin heavily
+lenis.on('scroll', ScrollTrigger.update);
 
-// Basic Animations
+gsap.ticker.add((time) => {
+    lenis.raf(time * 1000);
+});
+
+gsap.ticker.lagSmoothing(0);
+
 // Basic Animations & Logic
 document.addEventListener('DOMContentLoaded', () => {
 
@@ -59,11 +64,11 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // --- Terminal Typing Animation (100+ Commands) ---
     const lines = [
-        "// 🔐 SECTION 1 — PROJECT / SDK / DEV COMMANDS",
+        "//  SECTION 1 — PROJECT / SDK / DEV COMMANDS",
         "$ git clone github.com/dakshdubey/evoauth-sdk",
         "$ cd evoauth-sdk",
         "$ npm install",
-        "✔ dependencies installed [24ms]",
+        "✔ dependencies installed [1.2s]",
         "$ npm run build",
         "✔ build successful: dist/main.js compiled",
         "$ npm test",
@@ -71,7 +76,7 @@ document.addEventListener('DOMContentLoaded', () => {
         "$ npm audit",
         "✔ 0 vulnerabilities found",
         "$ npm publish --access public",
-        "✔ evoauth-sdk published successfully 🚀",
+        "✔ evoauth-sdk published successfully",
         "$ node index.js",
         "$ npm version patch",
         "$ npm pack",
@@ -92,7 +97,7 @@ document.addEventListener('DOMContentLoaded', () => {
         "$ npm cache clean --force",
         "$ npm config list",
         "",
-        "// 🛡️ SECTION 2 — SECURITY / AUTH / SYSTEM THINKING",
+        "// SECTION 2 — SECURITY / AUTH / SYSTEM THINKING",
         "$ openssl version",
         "$ openssl rand -hex 32",
         "$ openssl genrsa -out private.key 2048",
@@ -113,7 +118,8 @@ document.addEventListener('DOMContentLoaded', () => {
         "$ netstat -tulnp",
         "$ lsof -i :3000",
         "",
-        "// 🧪 SECTION 3 — ETHICAL HACKING / TESTING VIBE",
+        "//  SECTION 3 — ETHICAL HACKING / TESTING VIBE (SAFE)",
+        "// ⚠️ Ye sab “testing / learning / audit” context me hain",
         "$ nmap --version",
         "$ nmap -p 80,443 localhost",
         "$ nmap -sS 127.0.0.1",
@@ -128,7 +134,7 @@ document.addEventListener('DOMContentLoaded', () => {
         "$ nikto -Version",
         "✔ Simulated security scan completed",
         "",
-        "// 🧠 SECTION 4 — LOGS / MONITORING / PROD FEEL",
+        "//  SECTION 4 — LOGS / MONITORING / PROD FEEL",
         "$ tail -f logs/app.log",
         "$ tail -n 50 logs/auth.log",
         "$ grep ERROR logs/app.log",
@@ -146,7 +152,7 @@ document.addEventListener('DOMContentLoaded', () => {
         "$ df -h",
         "$ free -m",
         "",
-        "// ⚙️ SECTION 5 — HACKER AESTHETIC",
+        "//  SECTION 5 — HACKER AESTHETIC (PORTFOLIO ONLY)",
         "$ echo \"Initializing secure runtime...\"",
         "✔ Initializing secure runtime...",
         "$ echo \"Loading policy engine...\"",
@@ -174,32 +180,46 @@ document.addEventListener('DOMContentLoaded', () => {
     let termCharIndex = 0;
     const termSpeed = 15;
     const terminal = document.getElementById("terminal-output");
+    const termContent = document.getElementById("term-content");
     let termStarted = false;
 
     function typeTerminal() {
         if (termIndex < lines.length) {
-            if (termCharIndex < lines[termIndex].length) {
-                terminal.innerHTML += lines[termIndex].charAt(termCharIndex);
+            const currentLine = lines[termIndex];
+            if (termCharIndex < currentLine.length) {
+                if (termContent) termContent.textContent += currentLine.charAt(termCharIndex);
                 termCharIndex++;
                 setTimeout(typeTerminal, termSpeed);
             } else {
-                terminal.innerHTML += "\n";
+                if (termContent) termContent.textContent += "\n";
                 termCharIndex = 0;
                 termIndex++;
-                terminal.scrollTop = terminal.scrollHeight;
+                if (terminal) terminal.scrollTop = terminal.scrollHeight;
                 setTimeout(typeTerminal, 400);
             }
         }
     }
 
-    const termObserver = new IntersectionObserver((entries) => {
-        if (entries[0].isIntersecting && !termStarted) {
-            termStarted = true;
-            typeTerminal();
+    // --- Terminal Typing Trigger ---
+    ScrollTrigger.create({
+        trigger: ".terminal-section",
+        start: "top 70%",
+        onEnter: () => {
+            if (!termStarted && termContent) {
+                termStarted = true;
+                termContent.textContent = "";
+                typeTerminal();
+            }
+        },
+        // Ensure it triggers even if already in view
+        onUpdate: (self) => {
+            if (self.progress > 0 && !termStarted && termContent) {
+                termStarted = true;
+                termContent.textContent = "";
+                typeTerminal();
+            }
         }
-    }, { threshold: 0.5 });
-
-    if (terminal) termObserver.observe(terminal);
+    });
 
     // --- 3D Terminal Scroll Straightening ---
     gsap.to(".terminal", {
