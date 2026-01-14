@@ -552,7 +552,29 @@
 
     <script>
         document.addEventListener('DOMContentLoaded', () => {
-            const swiper = new Swiper('.linkedin-swiper', {
+            // Ecosystem Slider (Matches Image)
+            const ecoSwiper = new Swiper('.ecosystem-swiper', {
+                effect: 'coverflow',
+                grabCursor: true,
+                centeredSlides: true,
+                slidesPerView: 'auto',
+                loop: true,
+                coverflowEffect: {
+                    rotate: 35,
+                    stretch: -50,
+                    depth: 300,
+                    modifier: 1,
+                    slideShadows: true,
+                },
+                pagination: {
+                    el: '.ecosystem-pagination',
+                    clickable: true,
+                },
+                autoplay: { delay: 3000, disableOnInteraction: false }
+            });
+
+            // LinkedIn Slider
+            const linkedinSwiper = new Swiper('.linkedin-swiper', {
                 effect: 'coverflow',
                 grabCursor: true,
                 centeredSlides: true,
@@ -574,13 +596,8 @@
                     prevEl: '.swiper-button-prev',
                 },
                 breakpoints: {
-                    320: {
-                        slidesPerView: 1,
-                        coverflowEffect: { rotate: 0, depth: 50, modifier: 1 }
-                    },
-                    768: {
-                        slidesPerView: 'auto',
-                    }
+                    320: { slidesPerView: 1, coverflowEffect: { rotate: 0, depth: 50, modifier: 1 } },
+                    768: { slidesPerView: 'auto' }
                 }
             });
         });
