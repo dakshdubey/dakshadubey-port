@@ -13,6 +13,10 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
     <script src="https://unpkg.com/@studio-freight/lenis@1.0.29/dist/lenis.min.js"></script>
+
+    <!-- Swiper.js for ecosystem slider -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
+    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
 </head>
 
 <body class="bg-[#0a0a0b] text-slate-400 overflow-x-hidden scroll-smooth">
@@ -457,52 +461,130 @@
         </div>
     </section>
 
-    <!-- Network Updates Section -->
-    <section id="updates" class="py-32 bg-slate-50 scroll-reveal">
+    <!-- Network Updates Section (Slider Mode) -->
+    <section id="updates" class="py-32 bg-[#0a0a0b] relative overflow-hidden">
         <div class="max-w-7xl mx-auto px-6">
-            <div class="text-center space-y-4 mb-20">
+            <div class="text-center space-y-4 mb-20 scroll-reveal">
                 <p class="case-study-label">Live Feed</p>
-                <h2 class="text-4xl md:text-5xl font-black text-white tracking-tight text-slate-900">Network Activity
-                </h2>
+                <h2 class="text-4xl md:text-5xl font-black text-white tracking-tight">Network Activity</h2>
+                <p class="text-slate-500 font-medium">Swipe to explore the ecosystem</p>
             </div>
 
-            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 gap-8 justify-items-center">
+            <!-- Swiper Container -->
+            <div class="swiper linkedin-swiper pb-20">
+                <div class="swiper-wrapper">
 
-                <!-- LinkedIn Post 1 -->
-                <div class="w-full max-w-[504px] rounded-xl overflow-hidden shadow-2xl bg-white">
-                    <iframe
-                        src="https://www.linkedin.com/embed/feed/update/urn:li:ugcPost:7417080472926711808?collapsed=1"
-                        height="566" width="100%" frameborder="0" allowfullscreen="" title="Embedded post"
-                        class="w-full"></iframe>
+                    <!-- Slide 1 -->
+                    <div class="swiper-slide flex justify-center">
+                        <div
+                            class="w-full max-w-[504px] rounded-[2rem] overflow-hidden shadow-2xl bg-white border-4 border-white/10">
+                            <iframe
+                                src="https://www.linkedin.com/embed/feed/update/urn:li:ugcPost:7417080472926711808?collapsed=1"
+                                height="566" width="100%" frameborder="0" allowfullscreen="" title="Embedded post"
+                                class="w-full"></iframe>
+                        </div>
+                    </div>
+
+                    <!-- Slide 2 -->
+                    <div class="swiper-slide flex justify-center">
+                        <div
+                            class="w-full max-w-[504px] rounded-[2rem] overflow-hidden shadow-2xl bg-white border-4 border-white/10">
+                            <iframe
+                                src="https://www.linkedin.com/embed/feed/update/urn:li:ugcPost:7357469039473971200?collapsed=1"
+                                height="566" width="100%" frameborder="0" allowfullscreen="" title="Embedded post"
+                                class="w-full"></iframe>
+                        </div>
+                    </div>
+
+                    <!-- Slide 3 -->
+                    <div class="swiper-slide flex justify-center">
+                        <div
+                            class="w-full max-w-[504px] rounded-[2rem] overflow-hidden shadow-2xl bg-white border-4 border-white/10">
+                            <iframe
+                                src="https://www.linkedin.com/embed/feed/update/urn:li:ugcPost:7381782550844936193?collapsed=1"
+                                height="566" width="100%" frameborder="0" allowfullscreen="" title="Embedded post"
+                                class="w-full"></iframe>
+                        </div>
+                    </div>
+
+                    <!-- Slide 4 -->
+                    <div class="swiper-slide flex justify-center">
+                        <div
+                            class="w-full max-w-[504px] rounded-[2rem] overflow-hidden shadow-2xl bg-white border-4 border-white/10">
+                            <iframe
+                                src="https://www.linkedin.com/embed/feed/update/urn:li:ugcPost:7382050446049214464?collapsed=1"
+                                height="566" width="100%" frameborder="0" allowfullscreen="" title="Embedded post"
+                                class="w-full"></iframe>
+                        </div>
+                    </div>
+
                 </div>
 
-                <!-- LinkedIn Post 2 -->
-                <div class="w-full max-w-[504px] rounded-xl overflow-hidden shadow-2xl bg-white">
-                    <iframe
-                        src="https://www.linkedin.com/embed/feed/update/urn:li:ugcPost:7357469039473971200?collapsed=1"
-                        height="566" width="100%" frameborder="0" allowfullscreen="" title="Embedded post"
-                        class="w-full"></iframe>
-                </div>
-
-                <!-- LinkedIn Post 3 -->
-                <div class="w-full max-w-[504px] rounded-xl overflow-hidden shadow-2xl bg-white">
-                    <iframe
-                        src="https://www.linkedin.com/embed/feed/update/urn:li:ugcPost:7381782550844936193?collapsed=1"
-                        height="566" width="100%" frameborder="0" allowfullscreen="" title="Embedded post"
-                        class="w-full"></iframe>
-                </div>
-
-                <!-- LinkedIn Post 4 -->
-                <div class="w-full max-w-[504px] rounded-xl overflow-hidden shadow-2xl bg-white">
-                    <iframe
-                        src="https://www.linkedin.com/embed/feed/update/urn:li:ugcPost:7382050446049214464?collapsed=1"
-                        height="566" width="100%" frameborder="0" allowfullscreen="" title="Embedded post"
-                        class="w-full"></iframe>
-                </div>
-
+                <!-- Pagination & Navigation -->
+                <div class="swiper-pagination"></div>
+                <div class="swiper-button-next !text-blue-500"></div>
+                <div class="swiper-button-prev !text-blue-500"></div>
             </div>
         </div>
+
+        <style>
+            .linkedin-swiper .swiper-pagination-bullet {
+                background: #3b82f6;
+                opacity: 0.3;
+            }
+
+            .linkedin-swiper .swiper-pagination-bullet-active {
+                opacity: 1;
+                width: 24px;
+                border-radius: 4px;
+                transition: all 0.3s;
+            }
+
+            .swiper-slide {
+                transition: transform 0.3s;
+            }
+
+            .swiper-slide-active {
+                transform: scale(1.05);
+            }
+        </style>
     </section>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const swiper = new Swiper('.linkedin-swiper', {
+                effect: 'coverflow',
+                grabCursor: true,
+                centeredSlides: true,
+                slidesPerView: 'auto',
+                loop: true,
+                coverflowEffect: {
+                    rotate: 15,
+                    stretch: 0,
+                    depth: 100,
+                    modifier: 2.5,
+                    slideShadows: true,
+                },
+                pagination: {
+                    el: '.swiper-pagination',
+                    clickable: true,
+                },
+                navigation: {
+                    nextEl: '.swiper-button-next',
+                    prevEl: '.swiper-button-prev',
+                },
+                breakpoints: {
+                    320: {
+                        slidesPerView: 1,
+                        coverflowEffect: { rotate: 0, depth: 50, modifier: 1 }
+                    },
+                    768: {
+                        slidesPerView: 'auto',
+                    }
+                }
+            });
+        });
+    </script>
 
     <!-- Contact CTA -->
     <section id="contact" class="bg-slate-900 py-40 relative overflow-hidden">
