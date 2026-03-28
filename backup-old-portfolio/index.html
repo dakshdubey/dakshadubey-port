@@ -1,0 +1,785 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Daksha Dubey | Full-Stack Architect</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="main.css">
+
+    <!-- Core Libraries -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
+    <script src="https://unpkg.com/@studio-freight/lenis@1.0.29/dist/lenis.min.js"></script>
+
+    <!-- Swiper.js for ecosystem slider -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
+    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+</head>
+
+<body class="bg-[#0a0a0b] text-slate-400 overflow-x-hidden scroll-smooth">
+    <!-- Navbar -->
+    <nav class="fixed top-0 left-0 right-0 z-[100] px-6 py-4 md:px-12 glass-nav transition-all duration-300">
+        <div class="max-w-7xl mx-auto flex justify-between items-center">
+            <div class="flex items-center gap-3">
+                <div
+                    class="w-10 h-10 grad-main rounded-xl flex items-center justify-center shadow-lg shadow-blue-500/20 navbar-logo-box">
+                    <span class="text-white font-black text-xl navbar-logo-icon">D</span>
+                </div>
+                <span
+                    class="text-xl font-black text-white tracking-tighter uppercase navbar-logo-text">DakshaDubey</span>
+            </div>
+            <div class="hidden md:flex items-center gap-8">
+                <a href="#about"
+                    class="text-[10px] font-black uppercase tracking-[0.2em] text-slate-400 hover:text-slate-900 transition-colors">Origins</a>
+                <a href="#skills"
+                    class="text-[10px] font-black uppercase tracking-[0.2em] text-slate-400 hover:text-slate-900 transition-colors">Tech
+                    Hub</a>
+                <a href="#projects"
+                    class="text-[10px] font-black uppercase tracking-[0.2em] text-slate-400 hover:text-slate-900 transition-colors">Projects</a>
+                <a href="#experience"
+                    class="text-[10px] font-black uppercase tracking-[0.2em] text-slate-400 hover:text-slate-900 transition-colors">Timeline</a>
+                <a href="#education"
+                    class="text-[10px] font-black uppercase tracking-[0.2em] text-slate-400 hover:text-slate-900 transition-colors">Education</a>
+            </div>
+            <div class="flex items-center gap-4 navbar-btn-group">
+                <a href="https://www.linkedin.com/in/daksha-dubey-2117102a3/" target="_blank"
+                    class="hidden md:inline-flex text-xs font-black text-white uppercase tracking-widest px-6 py-3 rounded-xl hover:bg-white/10 transition-all btn-signin">LinkedIn</a>
+                <a href="#contact"
+                    class="hidden md:inline-flex grad-main text-white text-xs font-black uppercase tracking-widest px-8 py-3.5 rounded-xl shadow-xl shadow-blue-500/20 hover:scale-105 active:scale-95 transition-all btn-join">Contact</a>
+
+                <!-- Mobile Hamburger -->
+                <button id="mobile-menu-btn" class="md:hidden p-2 text-white z-[120] relative">
+                    <svg class="w-8 h-8" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                            d="M4 6h16M4 12h16M4 18h16" />
+                    </svg>
+                </button>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Mobile Menu Overlay -->
+    <div id="mobile-menu"
+        class="fixed inset-0 z-[110] bg-[#0a0a0b]/95 backdrop-blur-xl flex items-center justify-center opacity-0 pointer-events-none transition-all duration-500">
+        <div class="flex flex-col items-center gap-8">
+            <a href="#about" class="mobile-link text-2xl font-black text-white uppercase tracking-widest">Origins</a>
+            <a href="#skills" class="mobile-link text-2xl font-black text-white uppercase tracking-widest">Tech
+                Hub</a>
+            <a href="#projects"
+                class="mobile-link text-2xl font-black text-white uppercase tracking-widest">Projects</a>
+            <a href="#experience"
+                class="mobile-link text-2xl font-black text-white uppercase tracking-widest">Timeline</a>
+            <a href="#contact"
+                class="mobile-link text-2xl font-black text-blue-500 uppercase tracking-widest">Contact</a>
+        </div>
+    </div>
+
+    <!-- Hero Section -->
+    <section
+        class="relative min-h-screen flex items-center justify-center pt-32 md:pt-24 hero-gradient overflow-hidden">
+        <div class="max-w-6xl mx-auto px-6 text-center space-y-12 relative z-10">
+            <div
+                class="inline-flex items-center gap-2 px-4 py-2 bg-blue-500/10 rounded-full border border-blue-500/20 animate-fade-in">
+                <div class="w-1.5 h-1.5 rounded-full bg-blue-500 animate-pulse"></div>
+                <span class="text-[9px] font-black uppercase tracking-[0.3em] text-blue-400">Full-Stack Protocol
+                    Active</span>
+            </div>
+
+            <h1 class="text-6xl md:text-9xl font-black text-white tracking-tighter leading-[0.85] mb-6">
+                Architecting <br>
+                <span class="relative inline-block text-transparent bg-clip-text grad-main">
+                    Resilient Systems
+                </span>
+            </h1>
+
+            <p
+                class="text-base md:text-xl text-slate-500 font-medium max-w-2xl mx-auto leading-relaxed animate-fade-in delay-200 px-4">
+                Founder & CEO – Eventofu | Director | Leading a SaaS-Based B2B2C Event-Tech Platform. Full-Stack
+                Developer specializing in Strategy & Critical Thinking, AI, Robotics, and Space Tech.
+            </p>
+
+            <div class="flex flex-col md:flex-row items-center justify-center gap-6 pt-6 animate-fade-in delay-300">
+                <a href="#projects" class="btn-primary px-12 py-5 text-sm tracking-[0.2em] w-full md:w-auto">SYSTEM
+                    ARCHITECTURE</a>
+                <a href="#about"
+                    class="btn-secondary px-12 py-5 text-sm tracking-[0.2em] w-full md:w-auto bg-transparent border-slate-800 text-white hover:bg-slate-800">EXEC
+                    SUMMARY</a>
+            </div>
+        </div>
+
+        <!-- Parallax Background Elements -->
+        <div
+            class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[1200px] h-[1200px] bg-blue-500/5 rounded-full blur-[120px] pointer-events-none">
+        </div>
+    </section>
+
+    <!-- Terminal Showcase Section -->
+    <section class="terminal-section">
+        <div class="max-w-7xl mx-auto px-6 w-full flex flex-col items-center">
+            <div class="text-center space-y-4 mb-20 scroll-reveal">
+                <p class="case-study-label">Live Operations</p>
+                <h2 class="text-4xl md:text-5xl font-black text-white tracking-tight">Terminal Showcase</h2>
+            </div>
+
+            <div class="terminal scroll-reveal">
+                <div class="terminal-header">
+                    <span class="dot red"></span>
+                    <span class="dot yellow"></span>
+                    <span class="dot green"></span>
+                    <span class="terminal-title">dakshdubey — architect — 80x24</span>
+                </div>
+                <pre id="terminal-output"><span id="term-content"></span><span class="type-cursor"></span></pre>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="py-32 bg-white scroll-reveal">
+        <div class="max-w-7xl mx-auto px-6 grid md:grid-cols-2 gap-16 items-center">
+            <div class="relative">
+                <div class="perspective-container">
+                    <div class="float-3d">
+                        <img src="https://media.licdn.com/dms/image/v2/D5603AQE1cNfkhAJBsw/profile-displayphoto-shrink_800_800/B56ZY7F_1VGoAc-/0/1744748153160?e=1769040000&v=beta&t=m-9o_PrwZuA3bN78WtFM2MnR5Us6N9v-_5RFfM29Mj4"
+                            class="rounded-[3rem] shadow-2xl border-4 border-white/50 w-full max-w-sm mx-auto">
+                    </div>
+                </div>
+            </div>
+            <div class="space-y-8">
+                <p class="case-study-label">The Architect</p>
+                <h2 class="text-4xl md:text-5xl font-black text-white tracking-tight text-left mb-0">Driven by
+                    curiosity, <br>built for speed.</h2>
+                <p class="text-slate-400 text-lg font-medium leading-relaxed">
+                    I am Daksha Dubey, a Full-Stack Developer specializing in Android & Web Development, Backend
+                    Systems, and Cloud Integration. As Founder & CEO of Eventofu, I'm building a SaaS-based B2B2C
+                    event-tech platform that transforms how events are managed. My passion extends to AI, robotics, and
+                    space technology, where I create futuristic solutions that bridge imagination and reality.
+                </p>
+                <div class="grid grid-cols-2 gap-6 pt-4">
+                    <div class="p-4 bg-white/5 rounded-2xl border border-white/5">
+                        <p class="text-xs font-black text-blue-400 uppercase tracking-widest mb-1">Founder</p>
+                        <p class="text-white font-bold">Eventofu</p>
+                    </div>
+                    <div class="p-4 bg-white/5 rounded-2xl border border-white/5">
+                        <p class="text-xs font-black text-blue-400 uppercase tracking-widest mb-1">Focus</p>
+                        <p class="text-white font-bold">AI & Robotics</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Skills Hub -->
+    <section id="skills" class="py-32 bg-white relative overflow-hidden">
+        <div class="max-w-7xl mx-auto px-6">
+            <div class="text-center space-y-4 mb-20 scroll-reveal">
+                <p class="case-study-label">Integrated Stack</p>
+                <h2 class="text-4xl md:text-5xl font-black text-white tracking-tight">The Tech Hub</h2>
+            </div>
+
+            <div class="perspective-container relative min-h-[600px]">
+                <canvas id="webCanvas" class="absolute inset-0 w-full h-full"></canvas>
+
+                <div class="relative z-10 grid grid-cols-1 md:grid-cols-3 gap-12 items-center">
+                    <div class="text-center scroll-reveal" style="transition-delay: 100ms;">
+                        <div
+                            class="w-40 h-40 mx-auto bg-white/5 rounded-[2rem] shadow-xl border border-white/10 flex items-center justify-center float-3d mb-8">
+                            <span class="text-3xl font-black text-white">Web</span>
+                        </div>
+                        <p class="text-xs font-black text-slate-500 uppercase tracking-[0.2em]">React • Node.js • PHP
+                        </p>
+                        <p class="text-xs font-medium text-slate-600 mt-2">HTML • XML • RESTful APIs</p>
+                    </div>
+
+                    <div class="text-center scroll-reveal">
+                        <div
+                            class="w-56 h-56 mx-auto grad-main rounded-[2.5rem] shadow-2xl flex items-center justify-center float-3d border-4 border-white/10">
+                            <span class="text-5xl font-black text-white">CORE</span>
+                        </div>
+                        <h3 class="text-2xl font-black text-white mt-8 mb-3">Innovation Engine</h3>
+                        <p class="text-slate-400 font-medium">Full-Stack Architecture</p>
+                        <p class="text-xs font-medium text-slate-500 mt-2">JavaScript • Python • Java • C • C++</p>
+                        <p class="text-xs font-medium text-slate-500 mt-1">MySQL • MongoDB • Firebase</p>
+                    </div>
+
+                    <div class="text-center scroll-reveal" style="transition-delay: 200ms;">
+                        <div
+                            class="w-40 h-40 mx-auto bg-white/5 rounded-[2rem] shadow-xl border border-white/10 flex items-center justify-center float-3d mb-8">
+                            <span class="text-3xl font-black text-white">Mobile</span>
+                        </div>
+                        <p class="text-xs font-black text-slate-500 uppercase tracking-[0.2em]">Android • Kotlin • Java
+                        </p>
+                        <p class="text-xs font-medium text-slate-600 mt-2">Cloud Integration • Backend</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- System Thinking Section -->
+    <section id="system-thinking" class="py-32 bg-slate-50 scroll-reveal">
+        <div class="max-w-7xl mx-auto px-6">
+            <div class="text-center space-y-4 mb-20">
+                <p class="case-study-label">Mental Framework</p>
+                <h2 class="text-4xl md:text-5xl font-black text-white tracking-tight">System Thinking</h2>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+                <div class="thinking-card group">
+                    <div
+                        class="w-12 h-12 bg-blue-500/10 rounded-xl flex items-center justify-center mb-6 group-hover:bg-blue-500/20 transition-colors">
+                        <svg class="w-6 h-6 text-blue-500" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                d="M13 10V3L4 14h7v7l9-11h-7z" />
+                        </svg>
+                    </div>
+                    <h4 class="text-xl font-black text-white mb-4">Scalability</h4>
+                    <p class="text-slate-400 text-sm leading-relaxed">Designing for horizontal growth. Sharding, load
+                        balancing, and stateless architecture are defaults, not afterthoughts.</p>
+                </div>
+
+                <div class="thinking-card group">
+                    <div
+                        class="w-12 h-12 bg-emerald-500/10 rounded-xl flex items-center justify-center mb-6 group-hover:bg-emerald-500/20 transition-colors">
+                        <svg class="w-6 h-6 text-emerald-500" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 00-2 2zm10-10V7a4 4 0 00-8 0v4h8z" />
+                        </svg>
+                    </div>
+                    <h4 class="text-xl font-black text-white mb-4">Security</h4>
+                    <p class="text-slate-400 text-sm leading-relaxed">Zero-trust mindset. Implementing robust OAuth2,
+                        JWT protocols, and encrypted data pipelines at every node.</p>
+                </div>
+
+                <div class="thinking-card group">
+                    <div
+                        class="w-12 h-12 bg-purple-500/10 rounded-xl flex items-center justify-center mb-6 group-hover:bg-purple-500/20 transition-colors">
+                        <svg class="w-6 h-6 text-purple-500" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z" />
+                        </svg>
+                    </div>
+                    <h4 class="text-xl font-black text-white mb-4">Developer Experience</h4>
+                    <p class="text-slate-400 text-sm leading-relaxed">Building tools that developers love. Clean SDKs,
+                        strict typing, and comprehensive documentation for seamless integration.</p>
+                </div>
+
+                <div class="thinking-card group">
+                    <div
+                        class="w-12 h-12 bg-amber-500/10 rounded-xl flex items-center justify-center mb-6 group-hover:bg-amber-500/20 transition-colors">
+                        <svg class="w-6 h-6 text-amber-500" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                d="M13 7h8m0 0v8m0-8l-8 8-4-4-6 6" />
+                        </svg>
+                    </div>
+                    <h4 class="text-xl font-black text-white mb-4">Performance</h4>
+                    <p class="text-slate-400 text-sm leading-relaxed">Optimizing for the critical path. Core Web Vitals,
+                        low-latency APIs, and efficient resource allocation.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Case Studies / Projects -->
+    <section id="projects" class="py-32 bg-slate-900 overflow-hidden">
+        <div class="max-w-7xl mx-auto px-6">
+            <div class="text-center space-y-4 mb-20 scroll-reveal">
+                <p class="case-study-label">Featured Operations</p>
+                <h2 class="text-4xl md:text-5xl font-black text-white tracking-tight">Case Studies</h2>
+            </div>
+
+            <div id="projects-grid" class="grid grid-cols-1 md:grid-cols-2 gap-12">
+                <!-- Projects will be dynamically inserted here in case study format -->
+                <div class="col-span-full text-center py-12">
+                    <div
+                        class="inline-block animate-spin rounded-full h-8 w-8 border-4 border-blue-500 border-t-transparent">
+                    </div>
+                    <p class="mt-4 text-slate-500 font-medium">Synchronizing project nodes...</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Experience Timeline -->
+    <section id="experience" class="py-32 bg-white scroll-reveal">
+        <div class="max-w-4xl mx-auto px-6">
+            <div class="text-center space-y-4 mb-20">
+                <p class="case-study-label">Trajectory</p>
+                <h2 class="text-4xl md:text-5xl font-black text-white tracking-tight">Executive Timeline</h2>
+            </div>
+
+            <div
+                class="space-y-12 relative before:absolute before:inset-0 before:ml-5 before:h-full before:w-0.5 before:bg-slate-100 md:before:mx-auto">
+                <!-- Director Role -->
+                <div class="relative flex items-center justify-between md:justify-normal md:odd:flex-row-reverse group">
+                    <div
+                        class="flex items-center justify-center w-10 h-10 rounded-full border border-white shadow grad-main text-white shrink-0 md:order-1 md:group-odd:-translate-x-1/2 md:group-even:translate-x-1/2 z-10">
+                        <svg class="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z" />
+                        </svg>
+                    </div>
+                    <div
+                        class="w-[calc(100%-4rem)] md:w-[calc(50%-2.5rem)] p-8 rounded-3xl glass-premium hover:border-blue-300 transition-all duration-500 group-hover:transform group-hover:-translate-y-2">
+                        <div class="flex items-center justify-between mb-2">
+                            <span class="text-blue-600 text-[10px] font-black uppercase tracking-widest">Jun 2025 -
+                                Present</span>
+                            <span
+                                class="px-2 py-1 bg-blue-50 text-blue-600 text-[8px] font-black uppercase rounded">Current
+                                Node</span>
+                        </div>
+                        <h4 class="text-xl font-black text-slate-900">Director | Eventofu</h4>
+                        <p class="text-slate-500 font-medium text-sm mt-3">Leading strategic direction and business
+                            development for the SaaS-based B2B2C event-tech platform.</p>
+                    </div>
+                </div>
+
+                <!-- Founder & CEO Role -->
+                <div class="relative flex items-center justify-between md:justify-normal md:odd:flex-row-reverse group">
+                    <div
+                        class="flex items-center justify-center w-10 h-10 rounded-full border border-white shadow grad-main text-white shrink-0 md:order-1 md:group-odd:-translate-x-1/2 md:group-even:translate-x-1/2 z-10">
+                        <svg class="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                d="M21 13.255A23.931 23.931 0 0112 15c-3.183 0-6.22-.62-9-1.745M16 6V4a2 2 0 00-2-2h-4a2 2 0 00-2 2v2m4 6h.01M5 20h14a2 2 0 002-2V8a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
+                        </svg>
+                    </div>
+                    <div
+                        class="w-[calc(100%-4rem)] md:w-[calc(50%-2.5rem)] p-8 rounded-3xl glass-premium hover:border-emerald-300 transition-all duration-500 group-hover:transform group-hover:-translate-y-2">
+                        <div class="flex items-center justify-between mb-2">
+                            <span class="text-blue-600 text-[10px] font-black uppercase tracking-widest">Jan 2024 -
+                                Present</span>
+                            <span
+                                class="px-2 py-1 bg-emerald-50 text-emerald-600 text-[8px] font-black uppercase rounded">Founder
+                                Node</span>
+                        </div>
+                        <h4 class="text-xl font-black text-slate-900">Founder & CEO | Eventofu</h4>
+                        <p class="text-slate-500 font-medium text-sm mt-3">Building a comprehensive SaaS-based B2B2C
+                            event-tech platform. Leading end-to-end strategic operations and premium event management
+                            across India.</p>
+                    </div>
+                </div>
+
+                <!-- Eduexpose.in Internship -->
+                <div class="relative flex items-center justify-between md:justify-normal md:odd:flex-row-reverse group">
+                    <div
+                        class="flex items-center justify-center w-10 h-10 rounded-full border border-white shadow bg-white text-slate-400 shrink-0 md:order-1 md:group-odd:-translate-x-1/2 md:group-even:translate-x-1/2 z-10">
+                        <svg class="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                d="M10 20l4-16m4 4l4 4-4 4M6 16l-4-4 4-4" />
+                        </svg>
+                    </div>
+                    <div
+                        class="w-[calc(100%-4rem)] md:w-[calc(50%-2.5rem)] p-8 rounded-3xl glass-premium hover:border-blue-300 transition-all duration-500 group-hover:transform group-hover:-translate-y-2">
+                        <div class="flex items-center justify-between mb-2">
+                            <span class="text-slate-400 text-[10px] font-black uppercase tracking-widest">May 2025 - Jul
+                                2025</span>
+                        </div>
+                        <h4 class="text-xl font-black text-slate-900">Web Development Intern</h4>
+                        <p class="text-slate-500 font-medium text-sm mt-3">Eduexpose.in | Implementing core web
+                            infrastructure and digital solutions for educational platforms.</p>
+                    </div>
+                </div>
+
+                <!-- ArctikkCircle Internship -->
+                <div class="relative flex items-center justify-between md:justify-normal md:odd:flex-row-reverse group">
+                    <div
+                        class="flex items-center justify-center w-10 h-10 rounded-full border border-white shadow bg-white text-slate-400 shrink-0 md:order-1 md:group-odd:-translate-x-1/2 md:group-even:translate-x-1/2 z-10">
+                        <svg class="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253" />
+                        </svg>
+                    </div>
+                    <div
+                        class="w-[calc(100%-4rem)] md:w-[calc(50%-2.5rem)] p-8 rounded-3xl glass-premium hover:border-blue-300 transition-all duration-500 group-hover:transform group-hover:-translate-y-2">
+                        <div class="flex items-center justify-between mb-2">
+                            <span class="text-slate-400 text-[10px] font-black uppercase tracking-widest">Jan 2025 - Apr
+                                2025</span>
+                        </div>
+                        <h4 class="text-xl font-black text-white">Intern</h4>
+                        <p class="text-slate-400 font-medium text-sm mt-3">ArctikkCircle | Contributing to innovative
+                            development projects and technical solutions.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Education Section -->
+    <section id="education" class="py-32 bg-slate-50 scroll-reveal">
+        <div class="max-w-4xl mx-auto px-6">
+            <div class="text-center space-y-4 mb-20">
+                <p class="case-study-label">Academic Foundation</p>
+                <h2 class="text-4xl md:text-5xl font-black text-white tracking-tight">Education</h2>
+            </div>
+
+            <div class="space-y-8">
+                <!-- Parul University -->
+                <div
+                    class="p-8 rounded-3xl bg-white border border-slate-200 hover:border-blue-200 transition-colors hover:shadow-xl">
+                    <div class="flex flex-col md:flex-row md:items-start md:justify-between gap-4 mb-4">
+                        <div class="flex-1">
+                            <h4 class="text-2xl font-black text-slate-900 mb-2">Parul University</h4>
+                            <p class="text-lg text-blue-600 font-bold">Bachelor of Technology (B.Tech)</p>
+                            <p class="text-slate-500 font-medium mt-1">IEP CSE Microsoft</p>
+                        </div>
+                        <div class="text-left md:text-right">
+                            <span
+                                class="inline-block px-4 py-2 bg-blue-50 text-blue-600 text-[10px] font-black uppercase tracking-widest rounded-full">Aug
+                                2024 - Jun 2028</span>
+                        </div>
+                    </div>
+                    <div class="pt-4 border-t border-slate-100">
+                        <p class="text-slate-600 font-medium text-sm">Specializing in Computer Science with Microsoft
+                            Integration, focusing on full-stack development, cloud technologies, and enterprise
+                            solutions.</p>
+                    </div>
+                </div>
+
+                <!-- Startup School Program -->
+                <div
+                    class="p-8 rounded-3xl bg-white border border-slate-200 hover:border-blue-200 transition-colors hover:shadow-xl">
+                    <div class="flex flex-col md:flex-row md:items-start md:justify-between gap-4 mb-4">
+                        <div class="flex-1">
+                            <h4 class="text-2xl font-black text-slate-900 mb-2">PIERC - Parul University</h4>
+                            <p class="text-lg text-emerald-600 font-bold">Startup School Program</p>
+                            <p class="text-slate-500 font-medium mt-1">Certificate of Completion</p>
+                        </div>
+                        <div class="text-left md:text-right">
+                            <span
+                                class="inline-block px-4 py-2 bg-emerald-50 text-emerald-600 text-[10px] font-black uppercase tracking-widest rounded-full">Completed
+                                Sep 2024</span>
+                        </div>
+                    </div>
+                    <div class="pt-4 border-t border-slate-100">
+                        <p class="text-slate-600 font-medium text-sm">Intensive entrepreneurship program covering
+                            startup fundamentals, business strategy, and execution frameworks.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Network Updates Section (Slider Mode) -->
+    <section id="updates" class="py-32 bg-[#0a0a0b] relative overflow-hidden">
+        <div class="max-w-7xl mx-auto px-6">
+            <div class="text-center space-y-4 mb-20 scroll-reveal">
+                <p class="case-study-label">Live Feed</p>
+                <h2 class="text-4xl md:text-5xl font-black text-white tracking-tight">Network Activity</h2>
+                <p class="text-slate-500 font-medium">Swipe to explore the ecosystem</p>
+            </div>
+
+            <!-- Swiper Container -->
+            <div class="swiper linkedin-swiper pb-20">
+                <div class="swiper-wrapper">
+
+                    <!-- Slide 1 -->
+                    <div class="swiper-slide flex justify-center">
+                        <div
+                            class="w-full max-w-[504px] rounded-[2rem] overflow-hidden shadow-2xl bg-white border-4 border-white/10">
+                            <iframe
+                                src="https://www.linkedin.com/embed/feed/update/urn:li:ugcPost:7417080472926711808?collapsed=1"
+                                height="566" width="100%" frameborder="0" allowfullscreen="" title="Embedded post"
+                                class="w-full"></iframe>
+                        </div>
+                    </div>
+
+                    <!-- Slide 2 -->
+                    <div class="swiper-slide flex justify-center">
+                        <div
+                            class="w-full max-w-[504px] rounded-[2rem] overflow-hidden shadow-2xl bg-white border-4 border-white/10">
+                            <iframe
+                                src="https://www.linkedin.com/embed/feed/update/urn:li:ugcPost:7357469039473971200?collapsed=1"
+                                height="566" width="100%" frameborder="0" allowfullscreen="" title="Embedded post"
+                                class="w-full"></iframe>
+                        </div>
+                    </div>
+
+                    <!-- Slide 3 -->
+                    <div class="swiper-slide flex justify-center">
+                        <div
+                            class="w-full max-w-[504px] rounded-[2rem] overflow-hidden shadow-2xl bg-white border-4 border-white/10">
+                            <iframe
+                                src="https://www.linkedin.com/embed/feed/update/urn:li:ugcPost:7381782550844936193?collapsed=1"
+                                height="566" width="100%" frameborder="0" allowfullscreen="" title="Embedded post"
+                                class="w-full"></iframe>
+                        </div>
+                    </div>
+
+                    <!-- Slide 4 -->
+                    <div class="swiper-slide flex justify-center">
+                        <div
+                            class="w-full max-w-[504px] rounded-[2rem] overflow-hidden shadow-2xl bg-white border-4 border-white/10">
+                            <iframe
+                                src="https://www.linkedin.com/embed/feed/update/urn:li:ugcPost:7382050446049214464?collapsed=1"
+                                height="566" width="100%" frameborder="0" allowfullscreen="" title="Embedded post"
+                                class="w-full"></iframe>
+                        </div>
+                    </div>
+
+                </div>
+
+                <!-- Pagination & Navigation -->
+                <div class="swiper-pagination"></div>
+                <div class="swiper-button-next !text-blue-500"></div>
+                <div class="swiper-button-prev !text-blue-500"></div>
+            </div>
+        </div>
+
+        <style>
+            .linkedin-swiper .swiper-pagination-bullet {
+                background: #3b82f6;
+                opacity: 0.3;
+            }
+
+            .linkedin-swiper .swiper-pagination-bullet-active {
+                opacity: 1;
+                width: 24px;
+                border-radius: 4px;
+                transition: all 0.3s;
+            }
+
+            .swiper-slide {
+                transition: transform 0.3s;
+            }
+
+            .swiper-slide-active {
+                transform: scale(1.05);
+            }
+        </style>
+    </section>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            // Ecosystem Slider (Matches Image)
+            const ecoSwiper = new Swiper('.ecosystem-swiper', {
+                effect: 'coverflow',
+                grabCursor: true,
+                centeredSlides: true,
+                slidesPerView: 'auto',
+                loop: true,
+                coverflowEffect: {
+                    rotate: 35,
+                    stretch: -50,
+                    depth: 300,
+                    modifier: 1,
+                    slideShadows: true,
+                },
+                pagination: {
+                    el: '.ecosystem-pagination',
+                    clickable: true,
+                },
+                autoplay: { delay: 3000, disableOnInteraction: false }
+            });
+
+            // LinkedIn Slider
+            const linkedinSwiper = new Swiper('.linkedin-swiper', {
+                effect: 'coverflow',
+                grabCursor: true,
+                centeredSlides: true,
+                slidesPerView: 'auto',
+                loop: true,
+                coverflowEffect: {
+                    rotate: 15,
+                    stretch: 0,
+                    depth: 100,
+                    modifier: 2.5,
+                    slideShadows: true,
+                },
+                pagination: {
+                    el: '.swiper-pagination',
+                    clickable: true,
+                },
+                navigation: {
+                    nextEl: '.swiper-button-next',
+                    prevEl: '.swiper-button-prev',
+                },
+                breakpoints: {
+                    320: { slidesPerView: 1, coverflowEffect: { rotate: 0, depth: 50, modifier: 1 } },
+                    768: { slidesPerView: 'auto' }
+                }
+            });
+        });
+    </script>
+
+    <!-- Contact CTA -->
+    <section id="contact" class="bg-slate-900 py-40 relative overflow-hidden">
+        <div class="absolute inset-0 z-0">
+            <div class="absolute top-0 left-1/4 w-96 h-96 bg-blue-600/10 rounded-full blur-[100px] animate-pulse"></div>
+            <div class="absolute bottom-0 right-1/4 w-96 h-96 bg-purple-600/10 rounded-full blur-[100px] animate-pulse"
+                style="animation-delay: 1s;"></div>
+        </div>
+
+        <div class="max-w-5xl mx-auto px-6 text-center space-y-12 relative z-10">
+            <p class="case-study-label">Network Sync</p>
+            <h2 class="text-5xl md:text-8xl font-black text-white tracking-tight leading-none">
+                Let's architect <br>
+                <span class="text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-emerald-400">the next
+                    era.</span>
+            </h2>
+
+            <div class="flex flex-col md:flex-row items-center justify-center gap-12 pt-12">
+                <a href="mailto:dakshdubey1007@gmail.com"
+                    class="group relative px-12 py-6 bg-white text-slate-900 rounded-2xl font-black tracking-[0.2em] uppercase text-xs overflow-hidden transition-all hover:scale-105">
+                    <span class="relative z-10">INITIALIZE CONNECTION</span>
+                    <div
+                        class="absolute inset-0 bg-blue-50 transform scale-x-0 group-hover:scale-x-100 transition-transform origin-left duration-500">
+                    </div>
+                </a>
+
+                <div class="flex flex-col items-center md:items-start text-left gap-2 group">
+                    <span class="text-[10px] font-black text-slate-500 uppercase tracking-widest">Available for
+                        strategic partnerships</span>
+                    <div class="text-white font-bold text-lg hover:text-blue-400 transition-colors cursor-pointer">
+                        dakshdubey1007@gmail.com</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="py-20 bg-[#0a0a0b] border-t border-white/5">
+        <div class="max-w-7xl mx-auto px-6 flex flex-col md:flex-row justify-between items-center gap-10 text-center">
+            <div class="flex items-center gap-3">
+                <div class="w-8 h-8 grad-main rounded-lg flex items-center justify-center"><span
+                        class="text-white font-black">D</span></div>
+                <span class="text-lg font-black text-white tracking-tighter uppercase">DakshaDubey</span>
+            </div>
+            <p class="text-[10px] font-black text-slate-500 uppercase tracking-widest leading-relaxed">
+                © 2026 Architecture Protocol. All nodes active. <br>
+                Engineered by Team EvoXploit | Owned by Daksha Dubey
+            </p>
+            <div class="flex gap-8">
+                <a href="#about"
+                    class="text-[10px] font-black text-slate-500 uppercase tracking-widest hover:text-white">Origins</a>
+                <a href="#"
+                    class="text-[10px] font-black text-slate-500 uppercase tracking-widest hover:text-white">Protocol</a>
+                <a href="#"
+                    class="text-[10px] font-black text-slate-500 uppercase tracking-widest hover:text-white">Core</a>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Project Modal & Sandbox -->
+    <div id="project-modal" class="fixed inset-0 z-[200] hidden opacity-0 transition-opacity duration-300"
+        aria-hidden="true">
+        <!-- Backdrop -->
+        <div class="absolute inset-0 bg-slate-900/60 backdrop-blur-sm" id="modal-backdrop"></div>
+
+        <!-- Modal Window -->
+        <div class="absolute inset-x-4 top-[5%] bottom-[5%] md:inset-x-auto md:w-full md:max-w-6xl md:left-1/2 md:-translate-x-1/2 bg-[#0a0a0b] rounded-3xl shadow-2xl overflow-hidden flex flex-col transform scale-95 transition-transform duration-300 border border-white/10"
+            id="modal-window">
+
+            <!-- Header -->
+            <div class="px-6 py-4 border-b border-white/5 flex items-center justify-between bg-[#0a0a0b] z-10 shrink-0">
+                <div>
+                    <h3 id="modal-title" class="text-xl font-black text-white uppercase tracking-tight">Project Name
+                    </h3>
+                    <p id="modal-subtitle" class="text-xs font-bold text-slate-500 uppercase tracking-widest mt-1">Tech
+                        Stack</p>
+                </div>
+                <button id="modal-close" class="p-2 hover:bg-slate-100 rounded-full transition-colors group">
+                    <svg class="w-6 h-6 text-slate-400 group-hover:text-slate-900" fill="none" viewBox="0 0 24 24"
+                        stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                            d="M6 18L18 6M6 6l12 12" />
+                    </svg>
+                </button>
+            </div>
+
+            <!-- Body -->
+            <div class="flex-1 flex flex-col md:flex-row overflow-hidden relative">
+                <!-- Sidebar (Info) -->
+                <div class="w-full md:w-80 bg-white/5 border-r border-white/5 p-6 overflow-y-auto shrink-0 z-10">
+                    <div class="space-y-6">
+                        <div>
+                            <p class="text-[10px] font-black text-blue-400 uppercase tracking-widest mb-2">Description
+                            </p>
+                            <p id="modal-desc" class="text-slate-400 text-sm font-medium leading-relaxed">
+                                Project details...
+                            </p>
+                        </div>
+
+                        <div>
+                            <p class="text-[10px] font-black text-blue-600 uppercase tracking-widest mb-2">ACTIONS</p>
+                            <div class="flex flex-col gap-3">
+                                <a id="modal-btn-demo" href="#" target="_blank"
+                                    class="btn-primary py-3 text-xs w-full shadow-lg shadow-blue-500/10 text-center justify-center">OPEN
+                                    LIVE DEMO</a>
+                                <a id="modal-btn-github" href="#" target="_blank"
+                                    class="btn-secondary py-3 text-xs w-full text-center justify-center">VIEW SOURCE</a>
+                            </div>
+                        </div>
+
+                        <div id="sandbox-controls" class="pt-6 border-t border-white/5">
+                            <p class="text-[10px] font-black text-slate-500 uppercase tracking-widest mb-3">SANDBOX MODE
+                            </p>
+                            <div class="space-y-2">
+                                <button id="btn-view-live"
+                                    class="w-full text-left px-4 py-3 rounded-xl bg-white/5 border border-white/10 text-xs font-bold text-slate-400 hover:border-blue-400 hover:text-blue-400 transition-all active-mode flex items-center gap-2">
+                                    <span>🖥️</span> Live Preview
+                                </button>
+                                <button id="btn-view-code"
+                                    class="w-full text-left px-4 py-3 rounded-xl bg-white/5 border border-white/10 text-xs font-bold text-slate-400 hover:border-blue-400 hover:text-blue-600 transition-all flex items-center gap-2">
+                                    <span>👨‍💻</span> Code Sandbox
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Main Content (Iframe) -->
+                    <div class="flex-1 bg-[#0a0a0b] relative group overflow-hidden w-full h-full min-h-[400px]">
+                        <div id="iframe-loader" class="absolute inset-0 flex items-center justify-center z-0">
+                            <div class="animate-spin rounded-full h-8 w-8 border-4 border-white/10 border-t-blue-500">
+                            </div>
+                        </div>
+                        <!-- Iframe Container -->
+                        <iframe id="modal-iframe" src=""
+                            class="w-full h-full border-0 relative z-10 opacity-0 transition-opacity duration-500 bg-white"
+                            sandbox="allow-scripts allow-same-origin allow-forms allow-popups"></iframe>
+
+                        <!-- Fallback/Blocked Overlay -->
+                        <div id="iframe-fallback"
+                            class="absolute inset-0 flex flex-col items-center justify-center bg-[#0a0a0b] z-20 hidden">
+                            <p class="text-slate-500 font-bold mb-4">Preview not available in sandbox</p>
+                            <a id="modal-btn-fallback" href="#" target="_blank"
+                                class="btn-primary px-8 py-3 text-xs">OPEN IN NEW TAB</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Custom Cursor -->
+    <div id="cursor"
+        class="fixed top-0 left-0 w-4 h-4 bg-blue-500 rounded-full pointer-events-none z-[9999] mix-blend-difference hidden md:block">
+    </div>
+    <div id="cursor-blur"
+        class="fixed top-0 left-0 w-24 h-24 bg-blue-500/20 blur-xl rounded-full pointer-events-none z-[9998] hidden md:block">
+    </div>
+
+    <script src="js/spider-web.js"></script>
+    <script src="js/projects.js"></script>
+
+    <!-- Evolution Scripts -->
+    <script src="js/background.js"></script>
+    <script src="js/animations.js"></script>
+    <script src="js/cursor.js"></script>
+    <script>
+        // Scroll Reveal Logic
+        const observerOptions = { threshold: 0.1 };
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                }
+            });
+        }, observerOptions);
+
+        document.querySelectorAll('.scroll-reveal').forEach(el => observer.observe(el));
+    </script>
+</body>
+
+</html>
